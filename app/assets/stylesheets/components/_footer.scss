@@ -2,12 +2,12 @@ footer {
     background-color: rgb(247,247,247);
     border-top: 1px solid #E7E7E7;
     text-align:center;
-    padding:20px;
+    padding:12px;
 
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
-    height: 90px;
+    height: 70px;
     width: 100%;
     padding-left: 25px;
 }
@@ -23,3 +23,4 @@ ul {
   display: flex;
   padding-left:0;
 }
+
