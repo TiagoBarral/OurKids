@@ -1,5 +1,4 @@
 class ExpensesController < ApplicationController
-
   def index
     @expenses = Expense.all
   end
@@ -26,8 +25,9 @@ class ExpensesController < ApplicationController
     end
   end
 
-  private expense_params
-  params.require(:expense).permit(:title, :description, :date, :percentage,  :receipt, :amount, :category)
-end
+  private
 
+  def expense_params
+    params.require(:expense).permit(:title, :description, :date, :percentage,  :receipt, :amount, :category)
+  end
 end
