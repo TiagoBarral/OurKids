@@ -102,18 +102,21 @@ end
 expenses = []
 puts 'Creating expenses'
 
-5.times do
+35.times do
   expenses << {
     title: Faker::Lorem.word,
     description: Faker::Lorem.paragraph,
-    date: Faker::Date.forward(23)
+    date: Faker::Date.forward(23),
+    amount: rand(1..100),
+    percentage: rand(25..75)
   }
 end
 
 expenses.each do |expense|
   exp = Expense.new(expense)
-  exp.user = User.all.sample
-  exp.child = Child.all.sample
+  user = User.all.sample
+  exp.user = user
+  exp.child = user.children.sample
   exp.category = Category.all.sample
   exp.save
 end
