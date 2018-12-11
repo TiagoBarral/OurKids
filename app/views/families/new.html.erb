@@ -1,6 +1,8 @@
 <div class="container">
-  <%= simple_form_for @family do |f| %>
-  <%= f.input :coparent, label: 'Coparent Email'%>
-  <%= f.button :submit, 'Send Invite' %>
+  <h3>Enroll a Co-Parent:</h3>
+  <%= form_for :coparent, url: families_coparent_path, method: :post do |f| %>
+  CoParent name: <%= f.text_field :coparent_name %><br />
+  CoParent email : <%= f.text_field :coparent_email %><br />
+  <%= f.submit %>
   <% end %>
 </div>

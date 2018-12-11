@@ -1,0 +1,8 @@
+<%= link_to 'I am a Co-Parent', families_coparent_path, class: 'btn btn-danger' %>
+<ul>
+  <% @families.each do |family| %>
+  <li>
+    <%= "#{family.parent.first_name} and #{family.coparent.first_name}'s Family" %>
+  </li>
+  <% end %>
+</ul>
