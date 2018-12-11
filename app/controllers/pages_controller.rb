@@ -1,13 +1,10 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:landing]
-
-  def home
-  end
+  layout 'landing', only: [:landing]
 
   def landing
   end
 
   def dashboard
-
   end
 end

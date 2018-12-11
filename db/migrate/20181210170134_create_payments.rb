@@ -4,7 +4,6 @@ class CreatePayments < ActiveRecord::Migration[5.2]
       t.references :family, foreign_key: true
       t.string :amount
       t.integer :payment_method
-
       t.timestamps
     end
   end
