@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+Payment.destroy_all
 Family.destroy_all
 Expense.destroy_all
-Payment.destroy_all
 Child.destroy_all
 User.destroy_all
 
