@@ -1,0 +1,25 @@
+.banner {
+  color: white;
+  text-align: center;
+  justify-content: center;
+  background-size: cover;
+  height: cover;
+  background-color:#6495ed;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("our-kids.jpg");
+  background-position: center;
+}
+
+.banner h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.banner p {
+ font-size: 25px;
+ font-weight: lighter;
+}
