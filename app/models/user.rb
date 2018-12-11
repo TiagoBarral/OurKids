@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   mount_uploader :photo, PhotoUploader
-  has_many :families
+  has_many :parentfamilies, class_name: :Family, foreign_key: :parent_id
+  has_many :coparentfamilies, class_name: :Family, foreign_key: :coparent_id
 end

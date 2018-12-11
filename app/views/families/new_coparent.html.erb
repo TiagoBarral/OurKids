@@ -1,0 +1,7 @@
+<div class="container">
+  <h3>Co-Parent Email:</h3>
+  <%= form_for :coparent, url: families_path, method: :post do |f| %>
+  CoParent email : <%= f.text_field :coparent_email %><br />
+  <%= f.submit %>
+  <% end %>
+</div>
