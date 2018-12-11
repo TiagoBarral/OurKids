@@ -21,7 +21,7 @@ class FamiliesController < ApplicationController
   end
 
   def index
-    @families = current_user.parentfamilies + current_user.coparentfamilies
+    @families = current_user.families
   end
 
   def show

@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+FamilyChild.destroy_all
 Payment.destroy_all
 Family.destroy_all
 Expense.destroy_all
@@ -18,7 +19,7 @@ User.destroy_all
 users = []
 puts 'Creating users'
 
-4.times do
+7.times do
   users << {
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -26,6 +27,13 @@ puts 'Creating users'
     password: 'ourkids'
   }
 end
+
+users << {
+    first_name: 'Vasco',
+    last_name: 'Figueiredo',
+    email: 'vaskafig@gmail.com',
+    password: 'ourkids'
+  }
 
 users.each do |user|
   User.create(user)
@@ -39,7 +47,7 @@ puts 'Users created..'
 puts 'Creating children'
 children = []
 
-4.times do
+20.times do
   children << {
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -57,7 +65,7 @@ puts 'Children created..'
 categories = []
 puts 'Creating categories'
 
-4.times do
+10.times do
   categories << {
     name: Faker::Cannabis.category
   }
@@ -71,12 +79,22 @@ puts 'Categories created..'
 
 # FAMILIES
 
-fam = Family.new
-fam.parent = User.first
-fam.coparent = User.all.drop(1).sample
-fam.save
-
+User.count.times do
+  fam = Family.new
+  fam.parent = User.all.sample
+  fam.coparent = User.all.sample
+  fam.save
+end
 puts 'families created'
+
+#FAMILYCHILDREN
+
+Child.all.each do |child|
+  fam = FamilyChild.new
+  fam.child = child
+  fam.family = Family.all.sample
+  fam.save
+end
 
 
 # EXPENSES
@@ -91,6 +109,7 @@ puts 'Creating expenses'
     date: Faker::Date.forward(23)
   }
 end
+
 expenses.each do |expense|
   exp = Expense.new(expense)
   exp.user = User.all.sample
