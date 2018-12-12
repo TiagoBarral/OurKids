@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :find_family, only: [:index, :new, :create]
+  before_action :find_family, only: [:index, :create]
 
   def index
     @expenses = []
@@ -20,15 +20,23 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @user = current_user
+    @family = Family.find(params[:family])
+    @children = params[:children]
+    @num_expenses = children.size
+    @amount = params[:amount] / @num_expesnes
 
-    @child = Child.find(params)
-    @expense.user_id = @user
-    @expense.chil_id = @child
-    if @expense.save
-      redirects family_expenses_path
-    else
-      render :new
+    @children.each do |child|
+
+      @expense.user_id = @user
+      @expense.chil_id = @child
+      @expenses.amount = @amount
+      if@expense.save
+        redirects family_expenses_path
+      else
+        render :new
+      end
     end
+
   end
 
   private
