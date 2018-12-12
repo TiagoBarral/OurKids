@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     resources :expenses
     resources :payments
   end
+
   resources :expenses, only: [:new,:create]
+
+  resources :user_steps
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
