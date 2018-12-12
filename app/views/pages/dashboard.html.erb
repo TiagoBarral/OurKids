@@ -25,7 +25,7 @@
   </div>
   <div class= "profile-dashboard">
     <h4>Profile</h4>
-      <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-dashboard" %>
+      <%= cl_image_tag current_user.photo, class: "avatar-dashboard" %>
       <%= link_to '<img src="https://img.icons8.com/ios/20/000000/edit.png">'.html_safe, families_path(@families), method: :edit %>
     </div>
       <div class="mobile-dash">
