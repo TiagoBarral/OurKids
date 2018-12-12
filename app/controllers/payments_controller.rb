@@ -12,16 +12,21 @@ class PaymentsController < ApplicationController
   def create
     params[:payment][:payment_method] = params[:payment][:payment_method].to_i
     @payment = Payment.new(payment_params)
+    @payment.family = @family
     @payment.payee = current_user
     if @family.parent == current_user
       @family.outstanding_parent_balance = @family.outstanding_parent_balance.to_i - @payment.amount.to_i
       @family.outstanding_coparent_balance = @family.outstanding_coparent_balance + @payment.amount.to_i
       @family.save
+      @payment.payer = @family.coparent
     elsif @family.coparent == current_user
       @family.outstanding_parent_balance = @family.outstanding_parent_balance.to_i + @payment.amount.to_i
       @family.outstanding_coparent_balance = @family.outstanding_coparent_balance - @payment.amount.to_i
       @family.save
+      @payment.payer = @family.parent
     end
+    @payment.save
+    redirect_to family_payments_path(@family)
   end
 
   private
