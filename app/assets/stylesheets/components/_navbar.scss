@@ -2,13 +2,12 @@
 .navbar-wagon {
   transition: all 0.3s ease;
   height: 70px;
-  padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
   position: top;
-  padding-left: 350px;
+  padding-left: 345px;
 }
 
 .avatar {
@@ -16,4 +15,4 @@
   border-radius: 50%;
 }
 
-#top { position: fixed; top: 20px; left: 20px; }
+#top { position: fixed; top: 5px; right: 25px; }
