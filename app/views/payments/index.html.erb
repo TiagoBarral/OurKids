@@ -1,0 +1,16 @@
+<div class="container">
+  <h3>Payments:</h3><br>
+  <% @payments.each do |p| %>
+  <p>
+    <%= p.amount %> Euros
+  </p>
+  <p>
+    Payer: <%= p.payer.first_name %>
+  </p>
+    <p>
+    Payee: <%= p.payee.first_name %>
+  </p>
+  <br>
+  <% end %>
+  <%= link_to 'Add received payment', new_family_payment_path(@family), class: 'btn btn-danger' %>
+</div>

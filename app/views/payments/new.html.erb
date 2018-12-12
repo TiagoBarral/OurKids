@@ -1,0 +1,7 @@
+<div class="container">
+  <%= simple_form_for [@family, @payment] do |f| %>
+    <%= f.input :amount, required: true %>
+    <%= f.input :payment_method, collection: Payment.payment_methods, required: true %>
+    <%= f.button :submit, "I've been paid" %>
+  <% end %>
+</div>

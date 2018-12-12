@@ -128,19 +128,20 @@ puts 'Expenses created'
 payments = []
 puts 'Creating payments'
 
-5.times do
+30.times do
   payments << {
-    amount: '5',
-    payment_method: 5
+    amount: rand(10..50),
+    payment_method: rand(0..3)
 
   }
 end
 # TRAP , WITH USER.SAMPLE PAYER AND PAYEE CAN BE THE SAME
 payments.each do |payment|
   pay = Payment.new(payment)
-  pay.family = Family.all.sample
-  pay.payer = User.all.sample
-  pay.payee = User.all.sample
+  family = Family.all.sample
+  pay.family = family
+  pay.payer = family.coparent
+  pay.payee = family.parent
   pay.save
 end
 

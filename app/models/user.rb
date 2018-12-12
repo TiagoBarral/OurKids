@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :coparent_families, class_name: :Family, foreign_key: :coparent_id
   has_many :parent_children, through: :parent_families, source: :children
   has_many :coparent_children, through: :coparent_families, source: :children
+  has_many :expenses
 
   def families
     parent_families + coparent_families
