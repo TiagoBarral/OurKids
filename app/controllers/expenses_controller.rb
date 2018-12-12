@@ -1,7 +1,12 @@
 class ExpensesController < ApplicationController
+  before_action :find_family, only: [:index, :new, :create]
 
   def index
-    @expenses = Expense.all
+    @expenses = []
+    @family.children.each do |child|
+      @expenses << child.expenses
+    end
+    @expenses
   end
 
   def show
@@ -26,8 +31,13 @@ class ExpensesController < ApplicationController
     end
   end
 
-  private expense_params
-  params.require(:expense).permit(:title, :description, :date, :percentage,  :receipt, :amount, :category)
-end
+  private
 
+  def expense_params
+    params.require(:expense).permit(:title, :description, :date, :percentage, :receipt, :amount, :category)
+  end
+
+  def find_family
+    @family = Family.find(params[:family_id])
+  end
 end

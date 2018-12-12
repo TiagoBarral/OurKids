@@ -22,6 +22,7 @@ class FamiliesController < ApplicationController
 
   def index
     @families = current_user.families
+    redirect_to family_path(@families.first) if @families.count == 1
   end
 
   def show

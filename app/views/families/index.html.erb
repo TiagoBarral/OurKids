@@ -1,19 +1,25 @@
-<%= link_to 'I am a Co-Parent', families_coparent_path, class: 'btn btn-danger' %>
+<% if @families.empty? %>
 
-<h3>Your Families:</h3>
-
-
-<% @families.each do |family| %>
-  <p>
-    <%= "#{family.parent.first_name} and #{family.coparent.first_name}'s Family" %>
-  </p>
-<% end %>
+  <%= link_to 'Add a Family', families_coparent_path, class: 'btn btn-danger' %>
+  <%= link_to 'Invite a Co-parent', new_family_path, class: 'btn btn-danger' %>
+<% else %>
+  <h3>Your Families:</h3>
 
 
-<h3>Your Children:</h3>
+  <% @families.each do |family| %>
+    <%= link_to family_path(family) do %>
+      <p>
+        <%= "#{family.parent.first_name} and #{family.coparent.first_name}'s Family" %>
+      </p>
+    <% end %>
+  <% end %>
 
-<% current_user.children.each do |child| %>
-  <p>
-    <%= child.first_name %>
-  </p>
+
+  <h3>Your Children:</h3>
+
+  <% current_user.children.each do |child| %>
+    <p>
+      <%= child.first_name %>
+    </p>
+  <% end %>
 <% end %>

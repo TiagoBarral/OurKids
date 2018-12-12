@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/families/coparent', to: 'families#new_coparent'
   get '/dashboard', to: 'pages#dashboard'
   resources :families, only: [:index, :show, :new, :create] do
-    resources :children, only: [:new, :create, :edit, :update]
+    resources :children, only: [:new, :create]
     resources :expenses
     resources :payments
   end
