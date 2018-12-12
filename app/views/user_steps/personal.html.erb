@@ -1,12 +1,8 @@
-<%= form_for @children, url: wizard_path do |f| %>
-
-<%= @children.each do |child| %>
-  <h1><%= child.first_name %></h1>
-<% end %>
-<%= f.label :first_name %>
-<%= f.text_field :first_name %>
-
-<%= f.text_field :last_name %>
-
-<%= f.submit %>
-<% end %>
+<div>
+  <%= render layout: 'form' do |f| %>
+    <%= f.collection_check_boxes :id, @children, :id, :first_name %>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

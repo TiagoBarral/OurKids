@@ -14,7 +14,13 @@ class ExpensesController < ApplicationController
   end
 
   def new
-    @expense = Expense.new
+    session[:expense_params] ||= {}
+    @expense = Expense.new(session[:expense_params])
+    @expense.current_step = session[:expense_step]
+
+    @user = current_user
+    @children = @user.children
+
   end
 
   def create
