@@ -1,0 +1,18 @@
+<div class="kids">
+    <h2 class="text-align-left"><i class="fas fa-chevron-left"></i>The Kids</h2>
+  <div class="thin-div">
+    <div class="large-div">
+    </div>
+  </div>
+</div>
+
+  <div class= "family-dashboard">
+    <div class="families" style="display: flex; overflow-x: auto;">
+      <div class="children">
+        <% @family.children.each do |child| %>
+        <%= cl_image_tag child.photo, class: "avatar-medium"%>
+        <% end %>
+         <%= link_to 'New', families_coparent_path, class: 'round-btn-new' %>
+      </div>
+    </div>
+  </div>
