@@ -16,10 +16,11 @@
 
 
   <h3>Your Children:</h3>
-
-  <% current_user.children.each do |child| %>
-    <p>
-      <%= child.first_name %>
-    </p>
-  <% end %>
+  <div class="children-index" style="display: flex;">
+    <% current_user.children.each do |child| %>
+      <p>
+        <%= cl_image_tag child.photo, class: 'avatar' %>
+      </p>
+    <% end %>
+  </div>
 <% end %>
