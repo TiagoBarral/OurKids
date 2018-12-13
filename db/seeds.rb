@@ -14,6 +14,7 @@ FamilyChild.destroy_all
 Payment.destroy_all
 Family.destroy_all
 Expense.destroy_all
+Category.destroy_all
 Child.destroy_all
 User.destroy_all
 
@@ -32,11 +33,11 @@ puts 'Creating users'
 end
 
 users << {
-    first_name: 'Vasco',
-    last_name: 'Figueiredo',
-    email: 'vaskafig@gmail.com',
-    password: 'ourkids'
-  }
+  first_name: 'Vasco',
+  last_name: 'Figueiredo',
+  email: 'vaskafig@gmail.com',
+  password: 'ourkids'
+}
 
 users.each do |user|
   User.create(user)
