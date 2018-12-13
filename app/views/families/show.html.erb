@@ -7,11 +7,13 @@
 </div>
 
   <div class= "family-dashboard">
-    <div class="families" style="display: flex; overflow-x: auto">
+    <div class="families">
         <% @family.children.each do |child| %>
         <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
         <% end %>
-         <%= link_to '+', new_family_child_path(@family), class: 'round-btn-new' %>
+        <div class="button-kid">
+          <%= link_to '+', families_coparent_path, class: 'round-btn-kid' %>
+        </div>
       </div>
     </div>
   </div>
@@ -24,24 +26,71 @@
       </div>
 
       <div class="card-latest">
+        <div class="category">
+          <img src="https://img.icons8.com/ios/35/000000/students.png">
+        </div>
         <div class=card-title>
           <h4>Title</h4>
         </div>
         <div class="card-wrapper">
           <p>Description</p>
-          <p>+350€</p>
+          <p style="margin-left:20px; margin-right:65px;">+350€</p>
         </div>
-          <%= cl_image_tag current_user.photo, class: "avatar-small"%>
-          <%= cl_image_tag current_user.photo, class: "avatar-small"%>
-          <%= cl_image_tag current_user.photo, class: "avatar-small"%>
+        <ul class="card-avatar">
+          <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
+          <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
+          <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
+        </ul>
       </div>
-      <div class="card-latest">
-        <h4>Added Expense</h4>
+            <div class="card-latest">
+        <div class="category">
+          <img src="https://img.icons8.com/ios/35/000000/students.png">
+        </div>
+        <div class=card-title>
+          <h4>Title</h4>
+        </div>
+        <div class="card-wrapper">
+          <p>Description</p>
+          <p style="margin-left:20px; margin-right:65px;">+350€</p>
+        </div>
+        <ul class="card-avatar">
+          <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
+          <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
+          <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
+        </ul>
       </div>
-      <div class="card-latest">
-        <h4>Payed Expense</h4>
+            <div class="card-latest">
+        <div class="category">
+          <img src="https://img.icons8.com/ios/35/000000/students.png">
+        </div>
+        <div class=card-title>
+          <h4>Title</h4>
+        </div>
+        <div class="card-wrapper">
+          <p>Description</p>
+          <p style="margin-left:20px; margin-right:65px;">+350€</p>
+        </div>
+        <ul class="card-avatar">
+          <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
+          <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
+          <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
+        </ul>
       </div>
-      <div class="card-latest">
-        <h4>Added Expense</h4>
+            <div class="card-latest">
+        <div class="category">
+          <img src="https://img.icons8.com/ios/35/000000/students.png">
+        </div>
+        <div class=card-title>
+          <h4>Title</h4>
+        </div>
+        <div class="card-wrapper">
+          <p>Description</p>
+          <p style="margin-left:20px; margin-right:65px;">+350€</p>
+        </div>
+        <ul class="card-avatar">
+          <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
+          <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
+          <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
+        </ul>
       </div>
 </div>
