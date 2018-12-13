@@ -1,25 +1,22 @@
-<% if @families.empty? %>
-  <%= link_to 'Add a Family', families_coparent_path, class: 'btn btn-danger' %>
-  <%= link_to 'Invite a Co-parent', new_family_path, class: 'btn btn-danger' %>
-<% else %>
-  <h3>Families</h3>
+<div class="container">
+  <% if @families.empty? %>
+    <%= link_to 'Add a Family', families_coparent_path, class: 'btn btn-danger' %>
+    <%= link_to 'Invite a Co-parent', new_family_path, class: 'btn btn-danger' %>
+  <% else %>
+    <h2>Families</h2>
+    <div class="thin-div" style="margin-left: 0;">
+      <div class="large-div"></div>
+    </div>
 
-<% @families.each do |family| %>
-  <%= link_to family_path(family) do %>
-    <p>
-      <%= "#{family.parent.first_name} and #{family.coparent.first_name}'s Family" %>
-    </p>
-  <% end %>
-<% end %>
-
-<h3>The kids</h3>
-<div class="children-index" style="display: flex; overflow-x: auto;">
-  <div class="children">
-    <% current_user.children.each do |child| %>
-      <p>
-        <%= cl_image_tag child.photo, class: 'avatar-medium' %>
-      </p>
+    <% @families.each do |family| %>
+      <%= link_to family_path(family) do %>
+        <h3>
+          <%= "#{family.parent.first_name} and #{family.coparent.first_name}'s Family" %>
+        </h3>
+        <% family.children.each do |child| %>
+          <%= cl_image_tag child.photo, class: 'avatar-medium' %>
+        <% end %>
+      <% end %>
     <% end %>
-  </div>
+  <% end %>
 </div>
-<% end %>

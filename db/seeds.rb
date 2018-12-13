@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+puts 'Destroying database'
+
+
 FamilyChild.destroy_all
 Payment.destroy_all
 Family.destroy_all
