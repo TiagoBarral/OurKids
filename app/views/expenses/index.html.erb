@@ -1,13 +1,10 @@
 <div class="container">
-  <% @expenses.each do |expense_col| %>
-    <% expense_col.each do |expense| %>
+  <% @expenses.each do |expense| %>
       <h4><%= expense.title.capitalize %></h4>
       <p><%= expense.description %></p>
       <p><%= expense.date %></p>
       <p><%= expense.percentage %></p>
       <p><%= expense.category.name %></p>
       <p><%= expense.amount %></p>
-    <% end %>
   <% end %>
-
 </div>

@@ -20,6 +20,18 @@ class User < ApplicationRecord
     parent_children + coparent_children
   end
 
+  def balance
+    balance = []
+    families.each do |fam|
+      if fam.parent == self
+        balance << fam.outstanding_parent_balance
+      elsif fam.coparent == self
+        balance << fam.outstanding_coparent_balance
+      end
+    end
+    balance.sum
+  end
+
   def check_avatar
     self.remote_photo_url = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544626317/default-avatar.png' if self.photo.file.nil?
   end

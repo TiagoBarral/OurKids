@@ -4,4 +4,5 @@ class Family < ApplicationRecord
   has_many :payments
   has_many :familyChildren
   has_many :children, through: :familyChildren
+  has_many :expenses, through: :children
 end
