@@ -1,13 +1,62 @@
 <div class="container">
   <% @expenses.each do |expense_col| %>
-    <% expense_col.each do |expense| %>
-      <h4><%= expense.title.capitalize %></h4>
-      <p><%= expense.description %></p>
-      <p><%= expense.date %></p>
-      <p><%= expense.percentage %></p>
-      <p><%= expense.category.name %></p>
-      <p><%= expense.amount %></p>
-    <% end %>
+  <% expense_col.each do |expense| %>
+  <h4><%= expense.title.capitalize %></h4>
+  <p><%= expense.description %></p>
+  <p><%= expense.date %></p>
+  <p><%= expense.percentage %></p>
+  <p><%= expense.category.name %></p>
+  <p><%= expense.amount %></p>
+  <% end %>
   <% end %>
 
 </div>
+
+<div class="latest">
+  <h2 class="text-align-left"></i>Expenses History</h2>
+  <div class="thin-div">
+    <div class="large-div">
+    </div>
+  </div>
+
+  <div class="box">
+    <p class="item">Expenses</p>
+    <p class="item">Amount</p>
+    <p class="item">Date</p>
+    <p class="item">Kids</p>
+  </div>
+
+  <div class="card-latest">
+    <div class=card-title>
+      <h4>Title</h4>
+    </div>
+    <%= cl_image_tag current_user.photo, class: "avatar-small"%>
+    <%= cl_image_tag current_user.photo, class: "avatar-small"%>
+    <%= cl_image_tag current_user.photo, class: "avatar-small"%>
+  </div>
+  <div class="card-latest">
+    <h4>Education</h4>
+  </div>
+  <div class="card-latest">
+    <h4>Fun</h4>
+  </div>
+  <div class="card-latest">
+    <h4>School</h4>
+  </div>
+    <div class="card-latest">
+    <h4>Fun</h4>
+  </div>
+  <div class="card-latest">
+    <h4>Vacation</h4>
+  </div>
+  <div class="card-latest">
+    <h4>Clothe</h4>
+  </div>
+  <div class="card-latest">
+    <h4>Others</h4>
+  </div>
+  <div class="card-latest">
+    <h4>Sports</h4>
+  </div>
+</div>
+
