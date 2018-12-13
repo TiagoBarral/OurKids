@@ -9,6 +9,7 @@ require 'faker'
 
 puts 'Destroying database'
 
+Category.destroy_all
 ChildExpense.destroy_all
 FamilyChild.destroy_all
 Payment.destroy_all
