@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2018_12_13_131018) do
 
   create_table "expenses", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "child_id"
     t.string "title"
     t.text "description"
     t.date "date"
@@ -51,7 +50,6 @@ ActiveRecord::Schema.define(version: 2018_12_13_131018) do
     t.datetime "updated_at", null: false
     t.integer "amount_cents", default: 0, null: false
     t.index ["category_id"], name: "index_expenses_on_category_id"
-    t.index ["child_id"], name: "index_expenses_on_child_id"
     t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
@@ -106,7 +104,6 @@ ActiveRecord::Schema.define(version: 2018_12_13_131018) do
   add_foreign_key "child_expenses", "children"
   add_foreign_key "child_expenses", "expenses"
   add_foreign_key "expenses", "categories"
-  add_foreign_key "expenses", "children"
   add_foreign_key "expenses", "users"
   add_foreign_key "family_children", "children"
   add_foreign_key "family_children", "families"
