@@ -1,23 +1,73 @@
-<h1> --- New expense --- </h1>
+<div class="kids">
+  <h2 class="text-align-left" style="margin-left:30px;"></i>New expense</h2>
+  <div class="thin-div">
+    <div class="large-div">
+    </div>
+  </div>
+</div>
+
+<div class= "family-dashboard">
 <%= form_for @expense do |f| %>
-  <h2>Pick your children</h2>
-  <%= f.collection_check_boxes(:id, current_user.children, :id, :first_name) %>
-  <h2>Pick your date</h2>
-  <%= f.date_field :date %>
-  <h2>Description & Title</h2>
-  <p>Title:</p>
-  <%= f.text_field :title%>
-  <p>Description:</p>
-  <%= f.text_field :description%>
-  <h2>Upload a receipt</h2>
-  <%= f.file_field :receipt%>
-  <%= f.hidden_field :receipt_cache%>
-  <h2>Amount & Percentage</h2>
-  <p>Amount</p>
-  <%= f.number_field :amount_cents%>
-  <p>Percentage</p>
-  <%= f.number_field :percentage %>
-  <h2>Category</h2>
-  <%= f.collection_select :category, Category.order(:name),:id,:name, include_blank: true %>
-  <p><%= f.submit  %></p>
+  <h5>Pick children</h5>
+  <div class="thin-div-expense">
+    <div class="large-div-expense">
+    </div>
+  </div>
+  <div class="content-expenses">
+    <%= f.collection_check_boxes(:id, current_user.children, :id, :first_name) %>
+  </div>
+
+  <h5>Pick date</h5>
+  <div class="thin-div-expense">
+    <div class="large-div-expense">
+    </div>
+  </div>
+  <div class="content-expenses">
+    <%= f.date_field :date %>
+  </div>
+
+  <h5>Description & Title</h5>
+  <div class="thin-div-expense">
+    <div class="large-div-expense">
+    </div>
+  </div>
+  <div class="content-expenses">
+    <p>Title:</p>
+    <%= f.text_field :title%>
+    <p>Description:</p>
+    <%= f.text_field :description%>
+  </div>
+
+  <h5>Upload a receipt</h5>
+  <div class="thin-div-expense">
+    <div class="large-div-expense">
+    </div>
+  </div>
+  <div class="content-expenses">
+    <%= f.file_field :receipt%>
+    <%= f.hidden_field :receipt_cache%>
+  </div>
+
+  <h5>Amount & Percentage</h5>
+  <div class="thin-div-expense">
+    <div class="large-div-expense">
+    </div>
+  </div>
+  <div class="content-expenses">
+    <p>Amount</p>
+    <%= f.number_field :amount_cents%>
+    <p>Percentage</p>
+    <%= f.number_field :percentage %>
+  </div>
+
+  <h5>Category</h5>
+  <div class="thin-div-expense">
+    <div class="large-div-expense">
+    </div>
+  </div>
+  <div class="content-expenses">
+    <%= f.collection_select :category, Category.order(:name),:id,:name, include_blank: true %>
+    <p><%= f.submit  %></p>
+  </div>
 <% end %>
+</div>
