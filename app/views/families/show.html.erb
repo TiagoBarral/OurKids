@@ -24,73 +24,23 @@
     <div class="large-div">
     </div>
   </div>
-
-  <div class="card-latest">
-    <div class="category">
-      <img src="https://img.icons8.com/ios/35/000000/students.png">
+  <% @family.expenses.order(:updated_at).limit(5).each do |exp| %>
+    <div class="card-latest">
+      <div class="category">
+        <img src="https://img.icons8.com/ios/35/000000/students.png">
+      </div>
+      <div class=card-title>
+        <h4><%= exp.title %></h4>
+      </div>
+      <div class="card-wrapper">
+        <p><%= exp.description %></p>
+        <p style="margin-left:20px; margin-right:65px;"><%= humanized_money_with_symbol(exp.amount) %></p>
+      </div>
+      <ul class="card-avatar">
+      <% exp.children.each do |child| %>
+        <li><%= cl_image_tag child.photo, class: "avatar-small"%></li>
+      <% end %>
+      </ul>
     </div>
-    <div class=card-title>
-      <h4>Title</h4>
-    </div>
-    <div class="card-wrapper">
-      <p>Description</p>
-      <p style="margin-left:20px; margin-right:65px;">+350€</p>
-    </div>
-    <ul class="card-avatar">
-      <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
-      <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
-      <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
-    </ul>
-  </div>
-  <div class="card-latest">
-    <div class="category">
-      <img src="https://img.icons8.com/ios/35/000000/students.png">
-    </div>
-    <div class=card-title>
-      <h4>Title</h4>
-    </div>
-    <div class="card-wrapper">
-      <p>Description</p>
-      <p style="margin-left:20px; margin-right:65px;">+350€</p>
-    </div>
-    <ul class="card-avatar">
-      <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
-      <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
-      <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
-    </ul>
-  </div>
-  <div class="card-latest">
-    <div class="category">
-      <img src="https://img.icons8.com/ios/35/000000/students.png">
-    </div>
-    <div class=card-title>
-      <h4>Title</h4>
-    </div>
-    <div class="card-wrapper">
-      <p>Description</p>
-      <p style="margin-left:20px; margin-right:65px;">+350€</p>
-    </div>
-    <ul class="card-avatar">
-      <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
-      <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
-      <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
-    </ul>
-  </div>
-  <div class="card-latest">
-    <div class="category">
-      <img src="https://img.icons8.com/ios/35/000000/students.png">
-    </div>
-    <div class=card-title>
-      <h4>Title</h4>
-    </div>
-    <div class="card-wrapper">
-      <p>Description</p>
-      <p style="margin-left:20px; margin-right:65px;">+350€</p>
-    </div>
-    <ul class="card-avatar">
-      <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
-      <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
-      <li><%= cl_image_tag current_user.photo, class: "avatar-small"%></li>
-    </ul>
-  </div>
+  <% end %>
 </div>

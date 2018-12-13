@@ -23,7 +23,7 @@ User.destroy_all
 users = []
 puts 'Creating users'
 
-7.times do
+5.times do
   users << {
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -106,7 +106,7 @@ end
 expenses = []
 puts 'Creating expenses'
 
-35.times do
+50.times do
   expenses << {
     title: Faker::Lorem.word,
     description: Faker::Lorem.paragraph,
@@ -126,10 +126,12 @@ end
 
 
 Expense.all.each do |expense|
-  exp = ChildExpense.new
-  exp.expense = expense
-  exp.child = expense.user.children.sample
-  exp.save
+  rand(1..4).times do
+    exp = ChildExpense.new
+    exp.expense = expense
+    exp.child = expense.user.children.sample
+    exp.save
+  end
 end
 
 
