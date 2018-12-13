@@ -1,0 +1,71 @@
+.kids h2 {
+  font-size:24px;
+}
+
+.fa-chevron-left{
+  padding-right: 10px;
+}
+
+.latest h2{
+  font-size:24px;
+  margin-left:30px;
+}
+
+.card-latest{
+  display: flex;
+  background-color: white;
+  width: 355px;
+  height: 70px;
+  margin-left: 30px;
+  margin-top: 10px;
+  align-items: center;
+
+  h4{
+    font-size:16px;
+    margin-left:0px;
+    font-weight: bold;
+  }
+}
+
+.small-text-card {
+  margin-left:30px;
+  margin-top:5px;
+  margin-bottom:5px;
+  p{
+  font-size:16px;
+  color:#c6c6c6;
+  margin-top:60px;
+}
+}
+
+.card-wrapper {
+  display: flex;
+  p{
+     margin-top:50px;
+     margin-bottom:20px;
+     margin-left:-35px;
+  }
+  img{
+    color:#75b9be;
+  }
+}
+
+.card-title{
+  display: inline;
+  margin-top:-30px;
+  margin-left:20px;
+}
+
+.card-avatar{
+  position:right;
+  margin-top: 10px;
+}
+
+.families{
+  display: flex;
+  overflow-x: auto;
+}
+
+.category{
+  padding-left:10px;
+}

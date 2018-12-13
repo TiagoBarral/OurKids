@@ -1,0 +1,49 @@
+ <div class="dashboard">
+  <h2 class="text-align-left"><i class="fas fa-chevron-left"> </i> Settings</h2>
+  <div class="thin-div">
+    <div class="large-div">
+    </div>
+  </div>
+
+  <div class= "family-dashboard">
+    <h4>Family</h4>
+    <% if @families.empty? %>
+    <%= link_to 'Add a Family', families_coparent_path, class: 'btn btn-danger' %>
+    <%= link_to 'Invite a Co-parent', new_family_path, class: 'btn btn-danger' %>
+    <% else %>
+    <div class="families" style="display: flex; overflow-x: auto;">
+      <% @families.each do |family| %>
+      <div class="children">
+        <% family.children.each do |child| %>
+        <%= cl_image_tag child.photo, class: "avatar-medium"%>
+        <% end %>
+      </div>
+      <%= link_to '<img src="https://img.icons8.com/ios/20/000000/delete.png">'.html_safe, families_path(@families), method: :delete %>
+      <% end %>
+       <%= link_to 'New', families_coparent_path, class: 'round-btn-new' %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class= "profile-dashboard">
+    <h4>Profile</h4>
+      <%= cl_image_tag current_user.photo, class: "avatar-medium" %>
+      <%= link_to '<img src="https://img.icons8.com/ios/20/000000/edit.png">'.html_safe, families_path(@families), method: :edit %>
+    </div>
+      <div class="mobile-dash">
+        <%= link_to '<img src="https://img.icons8.com/ios/40/000000/phone.png">'.html_safe,families_path(@families), method: :edit %>
+        <div class="thin-div">
+        </div>
+      </div>
+      <div class="mobile-dash-2">
+        <%= link_to '<img src="https://img.icons8.com/ios/40/000000/important-mail.png">'.html_safe,families_path(@families), method: :edit %>
+        <div class="thin-div">
+        </div>
+      </div>
+      <div class="mobile-dash-3">
+        <%= link_to '<img src="https://img.icons8.com/ios/40/000000/mastercard-credit-card.png">'.html_safe,families_path(@families), method: :edit %>
+        <div class="thin-div">
+        </div>
+      </div>
+
+</div>

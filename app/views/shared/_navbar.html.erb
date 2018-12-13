@@ -1,5 +1,17 @@
 <!-- LOG OUT -->
-<div class="navbar-wagon">
- <img src='https://kitt.lewagon.com/placeholder/users/ClaraMorgen' class="avatar"/>
-</div>
+ <% if user_signed_in? %>
+<div class="navbar-wagon" id="top">
+  <div class="dropdown">
+    <%= cl_image_tag current_user.photo, class: "avatar-small dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+ <% else %>
+   <% end %>
 

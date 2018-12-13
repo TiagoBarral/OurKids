@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+puts 'Destroying database'
+
+Category.destroy_all
+ChildExpense.destroy_all
 FamilyChild.destroy_all
 Payment.destroy_all
 Family.destroy_all
@@ -116,10 +120,18 @@ expenses.each do |expense|
   exp = Expense.new(expense)
   user = User.all.sample
   exp.user = user
-  exp.child = user.children.sample
   exp.category = Category.all.sample
   exp.save
 end
+
+
+Expense.all.each do |expense|
+  exp = ChildExpense.new
+  exp.expense = expense
+  exp.child = expense.user.children.sample
+  exp.save
+end
+
 
 puts 'Expenses created'
 
@@ -128,19 +140,20 @@ puts 'Expenses created'
 payments = []
 puts 'Creating payments'
 
-5.times do
+30.times do
   payments << {
-    amount: '5',
-    payment_method: 5
+    amount: rand(10..50),
+    payment_method: rand(0..3)
 
   }
 end
 # TRAP , WITH USER.SAMPLE PAYER AND PAYEE CAN BE THE SAME
 payments.each do |payment|
   pay = Payment.new(payment)
-  pay.family = Family.all.sample
-  pay.payer = User.all.sample
-  pay.payee = User.all.sample
+  family = Family.all.sample
+  pay.family = family
+  pay.payer = family.coparent
+  pay.payee = family.parent
   pay.save
 end
 

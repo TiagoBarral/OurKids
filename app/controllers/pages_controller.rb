@@ -6,5 +6,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @families = current_user.families
   end
 end

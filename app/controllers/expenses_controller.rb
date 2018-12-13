@@ -2,11 +2,7 @@ class ExpensesController < ApplicationController
   before_action :find_family, only: [:index]
 
   def index
-    @expenses = []
-    @family.children.each do |child|
-      @expenses << child.expenses
-    end
-    @expenses
+    @expenses = @family.expenses
   end
 
   def show

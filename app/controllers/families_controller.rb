@@ -1,4 +1,6 @@
 class FamiliesController < ApplicationController
+  before_action :find_family, only: [:show]
+
   def coparent
     @user = current_user
     UserMailer.invite(params[:coparent], @user).deliver_now
@@ -22,9 +24,15 @@ class FamiliesController < ApplicationController
 
   def index
     @families = current_user.families
+    redirect_to family_path(@families.first) if @families.count == 1
   end
 
   def show
+  end
 
+  private
+
+  def find_family
+    @family = Family.find(params[:id])
   end
 end
