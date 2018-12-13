@@ -16,12 +16,22 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @user = current_user
-
-    @child = Child.find(params)
-    @expense.user_id = @user
-    @expense.chil_id = @child
+    @category = Category.find(params[:expense][:category])  unless params[:expense][:category].empty?
+    @expense.category = @category
+    @expense.user = @user
     if @expense.save
-      redirects family_expenses_path
+      children = []
+      params[:expense][:id].each do |id|
+        children << Child.find(id) unless id.empty?
+      end
+      children.each do |child|
+        @child_expense = ChildExpense.new
+        @child_expense.expense = @expense
+        @child_expense.child = child
+        @child_expense.save
+      end
+
+      redirect_to families_path
     else
       render :new
     end
@@ -30,7 +40,7 @@ class ExpensesController < ApplicationController
   private
 
   def expense_params
-    params.require(:expense).permit(:title, :description, :date, :percentage, :receipt, :amount, :category)
+    params.require(:expense).permit(:title, :description, :date, :percentage, :receipt, :amount)
   end
 
   def find_family

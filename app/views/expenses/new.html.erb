@@ -19,5 +19,5 @@
   <%= f.number_field :percentage %>
   <h2>Category</h2>
   <%= f.collection_select :category, Category.order(:name),:id,:name, include_blank: true %>
-  <p><%= f.submit "" %></p>
+  <p><%= f.submit  %></p>
 <% end %>
