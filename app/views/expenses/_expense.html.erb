@@ -9,7 +9,11 @@
     <div class="card-price">
       <%= humanized_money_with_symbol(expense.amount) %>
     </div>
-
+    <ul class="card-avatar">
+      <% expense.children.each do |child| %>
+        <li><%= cl_image_tag child.photo, class: "avatar-small"%></li>
+      <% end %>
+      </ul>
   </div>
 
 
