@@ -12,7 +12,12 @@
   <h2>Upload a receipt</h2>
   <%= f.file_field :receipt%>
   <%= f.hidden_field :receipt_cache%>
-  <h2>Amount</h2>
+  <h2>Amount & Percentage</h2>
+  <p>Amount</p>
   <%= f.number_field :amount_cents%>
+  <p>Percentage</p>
+  <%= f.number_field :percentage %>
+  <h2>Category</h2>
+  <%= f.collection_select :category, Category.order(:name),:id,:name, include_blank: true %>
   <p><%= f.submit "" %></p>
 <% end %>
