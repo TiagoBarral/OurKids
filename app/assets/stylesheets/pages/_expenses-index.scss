@@ -1,48 +1,53 @@
-.kids h2 {
-  font-size:24px;
-}
-
-.fa-chevron-left{
-  padding-right: 10px;
-}
-
-.latest h2{
-  font-size:24px;
-  margin-left:30px;
-}
-
-.card-latest{
+.card-latest1{
   display: flex;
   background-color: white;
   width: 355px;
   height: 70px;
   margin-left:30px;
   margin-top:10px;
+  align-items: center;
 
   h4{
     font-size:16px;
-    margin-left:10px;
+    margin-left:0px;
     font-weight: bold;
   }
 }
 
-.small-text-card {
-  margin-left:30px;
-  margin-top:5px;
-  margin-bottom:5px;
+.card-wrapper1 {
+  display: flex;
   p{
-  font-size:16px;
-  color:#c6c6c6;
-}
+     margin-top:50px;
+     margin-bottom:20px;
+     margin-left:-35px;
+  }
+  img{
+    color:#75b9be;
+  }
 }
 
-.card-wrapper{
+.card-price{
   display: inline;
+  margin-top:10px;
+  margin-left:30px;
+  margin-bottom: 12px;
 }
 
-.card-title{
+.card-title1{
   display: inline;
+  margin-top:10px;
+  margin-left:15px;
 }
+
+.card-avatar1{
+  position:right;
+  margin-top: 10px;
+}
+
+.category1{
+  padding-left:10px;
+}
+
 
 .box{
   display: flex;
@@ -57,13 +62,23 @@
 }
 
 p.item {
-    text-transform: capitalize;
+    text-transform: uppercase !important;
     text-align: center;
-}
-p.item {
     display: block;
 }
-p.item:first-letter  {
-    text-transform: uppercase;
+
+p.item1 {
+    text-transform: uppercase !important;
+    text-align: center;
+    display: block;
+    margin-left: 100px
 }
+
+p.item2 {
+    text-transform: uppercase !important;
+    text-align: center;
+    display: block;
+    margin-right: 55px
+}
+
 
