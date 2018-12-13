@@ -1,9 +1,75 @@
 <footer>
   <ul id="footerlist">
-    <li><a href="#"><img src="https://img.icons8.com/ios/50/000000/home.png"></img></a></li>
-    <li><a href="#"><img src="https://img.icons8.com/ios/50/000000/calendar.png"></img></a></li>
-    <li><a href="#"><img src="https://img.icons8.com/ios/50/000000/plus-filled.png"></img></a></li>
-    <li><a href="#"><img src="https://img.icons8.com/ios/50/000000/cash-in-hand.png"></img></a></li>
-    <li><a href="#"><img src="https://img.icons8.com/ios/50/000000/user.png"></img></a></li>
+    <li><a href="/families"><img src="https://img.icons8.com/ios/50/000000/home.png"></img></a></li>
+
+    <% if params[:id].nil? && params[:family_id].nil? %>
+      <li style="opacity: 0.3;">
+        <img src="https://img.icons8.com/ios/50/000000/calendar.png"></img>
+      </li>
+    <% else %>
+      <% if params[:family_id] != nil %>
+        <li>
+          <%= link_to family_expenses_path(Family.find(params[:family_id])) do %>
+            <img src="https://img.icons8.com/ios/50/000000/calendar.png"></img>
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to family_expenses_path(Family.find(params[:id])) do %>
+            <img src="https://img.icons8.com/ios/50/000000/calendar.png"></img>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+    <li><a href="/expenses/new"><img src="https://img.icons8.com/ios/50/000000/plus-filled.png"></img></a></li>
+
+    <li>
+      <%= link_to "#newTag", data: { toggle: "modal" } do %>
+        <img src="https://img.icons8.com/ios/50/000000/cash-in-hand.png"></img>
+      <% end %>
+    </li>
+
+    <li><a href="/dashboard"><img src="https://img.icons8.com/ios/50/000000/user.png"></img></a></li>
 </ul>
 </footer>
+
+<!-- Modal -->
+<div class="modal fade" id="newTag" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Your Balance</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="margin: 15px;">
+        <% if user_signed_in? %>
+          <% current_user.families.each do |fam| %>
+            <% if fam.parent == current_user %>
+              <% balance = fam.outstanding_parent_balance %>
+              <h5><%= fam.coparent.first_name.capitalize %>: <%= balance %> €</h5>
+            <% elsif fam.coparent == current_user %>
+              <% balance = fam.outstanding_coparent_balance %>
+              <h5><%= fam.parent.first_name.capitalize %>: <%= balance %> €</h5>
+            <% end %>
+          <% end %>
+          <% if current_user.balance >= 0 %>
+            <h4 class="text-right" style="color: green;">
+              Owed <%= current_user.balance.abs %> €
+            </h4>
+          <% else %>
+            <h4 class="text-right" style="color: red;">
+              You owe <%= current_user.balance.abs %> €
+            </h4>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+

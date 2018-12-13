@@ -10,4 +10,12 @@ class Child < ApplicationRecord
   def check_avatar
     self.remote_photo_url = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544626317/default-avatar.png' if self.photo.file.nil?
   end
+
+  def total
+    total = []
+    expenses.each do |e|
+      total << e.amount
+    end
+    total.sum
+  end
 end

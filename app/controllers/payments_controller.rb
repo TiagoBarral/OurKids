@@ -15,13 +15,9 @@ class PaymentsController < ApplicationController
     @payment.family = @family
     @payment.payee = current_user
     if @family.parent == current_user
-      @family.outstanding_parent_balance = @family.outstanding_parent_balance.to_i - @payment.amount.to_i
-      @family.outstanding_coparent_balance = @family.outstanding_coparent_balance + @payment.amount.to_i
       @family.save
       @payment.payer = @family.coparent
     elsif @family.coparent == current_user
-      @family.outstanding_parent_balance = @family.outstanding_parent_balance.to_i + @payment.amount.to_i
-      @family.outstanding_coparent_balance = @family.outstanding_coparent_balance - @payment.amount.to_i
       @family.save
       @payment.payer = @family.parent
     end
