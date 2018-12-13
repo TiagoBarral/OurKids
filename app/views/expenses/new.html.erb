@@ -1,14 +1,18 @@
-<h2>Pick your children</h2>
-<%= f.collection_check_boxes(:id, current_user.children, :id, :first_name) %>
-<h2>Pick your date</h2>
-<%= f.date_field :date %>
-<h2>Description & Title</h2>
-<p>Title:</p>
-<%= f.text_field :title%>
-<p>Description:</p>
-<%= f.text_field :description%>
-<h2>Upload a receipt</h2>
-<%= f.file_field :receipt%>
-<%= f.hidden_field :receipt_cache%>
-<h2>Amount</h2>
-<%= f.number_field :amount_cents%>
+<h1> --- New expense --- </h1>
+<%= form_for @expense do |f| %>
+  <h2>Pick your children</h2>
+  <%= f.collection_check_boxes(:id, current_user.children, :id, :first_name) %>
+  <h2>Pick your date</h2>
+  <%= f.date_field :date %>
+  <h2>Description & Title</h2>
+  <p>Title:</p>
+  <%= f.text_field :title%>
+  <p>Description:</p>
+  <%= f.text_field :description%>
+  <h2>Upload a receipt</h2>
+  <%= f.file_field :receipt%>
+  <%= f.hidden_field :receipt_cache%>
+  <h2>Amount</h2>
+  <%= f.number_field :amount_cents%>
+  <p><%= f.submit "" %></p>
+<% end %>
