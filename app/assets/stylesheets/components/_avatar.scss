@@ -19,4 +19,24 @@
   width: 150px;
   height: 150px;
   border-radius: 100px;
+  margin-right: 10px;
+}
+
+.card-avatar li {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2);
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+}
+
+.card-avatar li:nth-child(n+2) {
+  margin-left: -50px;
+}
+
+.card-avatar ul:hover li:nth-child(n+2) {
+   margin-left: -10px;
 }
