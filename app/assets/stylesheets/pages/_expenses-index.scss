@@ -14,6 +14,11 @@
   }
 }
 
+.expenses-container {
+  overflow-y: auto;
+  height: 75vh;
+}
+
 .card-wrapper1 {
   display: flex;
   p{

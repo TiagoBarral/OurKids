@@ -10,10 +10,10 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body>
+  <body style="overflow-y: -moz-hidden-unscrollable;">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div id="mainBody">
+    <div id="mainBody" style="overflow-y: auto;">
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>

@@ -1,0 +1,6 @@
+<!-- FORM -->
+<h1>Make a stripe payment below:</h1>
+<%= form_for :payment, url: family_payments_pay_path, method: :post do |f| %>
+  <!-- ĨMPLEMENT STRIPE FORM -->
+  <%= f.submit %>
+  <% end %>
