@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :find_family, only: [:index, :new, :create]
+  before_action :find_family, only: [:index]
 
   def index
     @expenses = @family.expenses
