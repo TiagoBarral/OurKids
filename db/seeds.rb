@@ -9,11 +9,12 @@ require 'faker'
 
 puts 'Destroying database'
 
-
+ChildExpense.destroy_all
 FamilyChild.destroy_all
 Payment.destroy_all
 Family.destroy_all
 Expense.destroy_all
+Category.destroy_all
 Child.destroy_all
 User.destroy_all
 
@@ -32,11 +33,11 @@ puts 'Creating users'
 end
 
 users << {
-    first_name: 'Vasco',
-    last_name: 'Figueiredo',
-    email: 'vaskafig@gmail.com',
-    password: 'ourkids'
-  }
+  first_name: 'Vasco',
+  last_name: 'Figueiredo',
+  email: 'vaskafig@gmail.com',
+  password: 'ourkids'
+}
 
 users.each do |user|
   User.create(user)
@@ -119,10 +120,18 @@ expenses.each do |expense|
   exp = Expense.new(expense)
   user = User.all.sample
   exp.user = user
-  exp.child = user.children.sample
   exp.category = Category.all.sample
   exp.save
 end
+
+
+Expense.all.each do |expense|
+  exp = ChildExpense.new
+  exp.expense = expense
+  exp.child = expense.user.children.sample
+  exp.save
+end
+
 
 puts 'Expenses created'
 

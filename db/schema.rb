@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_125028) do
+ActiveRecord::Schema.define(version: 2018_12_13_131018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2018_12_12_125028) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "child_expenses", force: :cascade do |t|
+    t.bigint "expense_id"
+    t.bigint "child_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_child_expenses_on_child_id"
+    t.index ["expense_id"], name: "index_child_expenses_on_expense_id"
   end
 
   create_table "children", force: :cascade do |t|
@@ -94,6 +103,8 @@ ActiveRecord::Schema.define(version: 2018_12_12_125028) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "child_expenses", "children"
+  add_foreign_key "child_expenses", "expenses"
   add_foreign_key "expenses", "categories"
   add_foreign_key "expenses", "children"
   add_foreign_key "expenses", "users"

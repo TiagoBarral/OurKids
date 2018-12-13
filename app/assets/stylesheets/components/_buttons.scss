@@ -7,6 +7,7 @@
   text-align: center;
   outline: none;
   text-decoration: none;
+  border-radius: 10px;
 }
 
 .ghost-button-btn{
@@ -18,6 +19,7 @@
   text-align: center;
   outline: none;
   text-decoration: none;
+  border-radius: 10px;
 }
 
 .round-btn-new {
@@ -37,4 +39,17 @@
   border-radius: 100px;
   padding: 15px;
   font-size: 40px;
+}
+
+.btn-login{
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  background-color: #75b9be;
+  border: 1px solid #75b9be;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  border-radius: 10px;
+  font-color: white;
 }
