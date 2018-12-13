@@ -9,7 +9,7 @@ require 'faker'
 
 puts 'Destroying database'
 
-
+ChildExpense.destroy_all
 FamilyChild.destroy_all
 Payment.destroy_all
 Family.destroy_all
@@ -119,10 +119,18 @@ expenses.each do |expense|
   exp = Expense.new(expense)
   user = User.all.sample
   exp.user = user
-  exp.child = user.children.sample
   exp.category = Category.all.sample
   exp.save
 end
+
+
+Expense.all.each do |expense|
+  exp = ChildExpense.new
+  exp.expense = expense
+  exp.child = expense.user.children.sample
+  exp.save
+end
+
 
 puts 'Expenses created'
 

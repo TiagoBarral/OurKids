@@ -5,7 +5,8 @@ class Child < ApplicationRecord
   has_many :familyChildren
   has_many :families, through: :familyChildren
   has_many :parents, through: :families, class_name: :User
-  has_many :expenses
+  has_many :childExpenses
+  has_many :expenses, through: :childExpenses
 
   def check_avatar
     self.remote_photo_url = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544626317/default-avatar.png' if self.photo.file.nil?
