@@ -25,6 +25,13 @@ class PaymentsController < ApplicationController
     redirect_to family_payments_path(@family)
   end
 
+  def pay
+    # view
+  end
+
+  def stripe
+  end
+
   private
 
   def payment_params

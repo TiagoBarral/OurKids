@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :children, only: [:new, :create]
     resources :expenses
     resources :payments, only: [:index, :new, :create]
+    get '/payments/pay', to: 'payments#pay'
+    post '/payments/pay', to: 'payments#stripe'
   end
   resources :expenses, only: [:index, :new, :create]
 end
