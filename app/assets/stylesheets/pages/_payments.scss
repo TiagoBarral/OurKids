@@ -5,7 +5,9 @@
   align-content: center;
   align-items:center;
   margin-top: 21px;
+  margin-left: 10%;
 }
+
 .item{
   flex: 1 1 auto;
 }
@@ -30,3 +32,11 @@ p.item-3 {
     display: block;
     margin-right:10%;
 }
+
+.card-payment{
+  display: inline;
+  margin-top:10px;
+  margin-left: 15%;
+  margin-bottom: 12px;
+}
+
