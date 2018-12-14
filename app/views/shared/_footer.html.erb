@@ -44,7 +44,7 @@
         <% if user_signed_in? %>
           <% current_user.families.each do |fam| %>
             <% if fam.parent == current_user %>
-              <% balance = fam.outstanding_coparent_balance %>
+              <% balance = fam.outstanding_parent_balance %>
               <h5><%= fam.coparent.first_name.capitalize %>: <%= balance %> €</h5>
               <% if balance > 0 %>
                 <%= simple_form_for :balance, url: family_payments_pay_path(fam), method: :get do |f| %>
