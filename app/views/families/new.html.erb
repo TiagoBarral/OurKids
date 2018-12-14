@@ -1,12 +1,3 @@
-
-<div class="container form-newfamily">
-  <h3>Enroll a Co-Parent:</h3>
-  <%= form_for :coparent, url: families_coparent_path, method: :post do |f| %>
-  Name: <%= f.text_field :coparent_name %><br />
-  Email : <%= f.text_field :coparent_email, style: "margin-top: 19px;" %><br />
-  <%= f.submit :Submit, class: "ghost-button-btn-newfamily" %>
-  <% end %>
-
 <div class="kids">
   <h2 class="text-align-left" style="margin-left:7%;">Enroll a Co-Parent</h2>
   <div class="thin-div">
@@ -14,11 +5,11 @@
     </div>
   </div>
 
-  <div class= "family-dashboard">
-    <%= form_for :coparent, url: families_coparent_path, method: :post do |f| %>
-    CoParent name: <%= f.text_field :coparent_name %><br />
-    CoParent email : <%= f.text_field :coparent_email %><br />
-    <%= f.submit %>
-    <% end %>
+  <div class= "family-dashboard form-newfamily">
+   <%= form_for :coparent, url: families_coparent_path, method: :post do |f| %>
+  Name: <%= f.text_field :coparent_name %><br />
+  Email : <%= f.text_field :coparent_email, style: "margin-top: 19px;" %><br />
+  <%= f.submit :Submit, class: "ghost-button-btn-newfamily" %>
+  <% end %>
   </div>
 </div>
