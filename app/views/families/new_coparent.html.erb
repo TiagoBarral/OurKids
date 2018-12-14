@@ -1,7 +1,7 @@
-<div class="container">
-  <h3>Co-Parent Email:</h3>
+<div class="container form">
+  <h2>Co-Parent Email:</h2>
   <%= form_for :coparent, url: families_path, method: :post do |f| %>
-  CoParent email : <%= f.text_field :coparent_email %><br />
-  <%= f.submit %>
+   Email : <%= f.text_field :coparent_email %><br />
+  <%= f.button :Submit, class: "ghost-button-btn-newcop" %>
   <% end %>
 </div>
