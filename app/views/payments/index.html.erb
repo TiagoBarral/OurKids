@@ -12,31 +12,7 @@
   <p class="item-3">AMOUNT</p>
 </div>
 
-<% @payments.each do |p| %>
-<div class="expenses-container">
-  <div class="card-latest1">
-      <div class="card-price">
-        <%= p.payer.first_name %>
-      </div>
-      <div class="card-price">
-        <%= p.payee.first_name %>
-      </div>
-      <div class="card-price">
-        <p><%= p.amount %> Euros</p>
-      </div>
-    <% end %>
-    <%= link_to 'Add received payment', new_family_payment_path(@family), class: 'payment-btn' %>
+  <div class="expenses-container">
+   <%= render @payments %>
+  <%= link_to 'Add received payment', new_family_payment_path(@family), class: 'payment-btn' %>
   </div>
-</div>
-
-
-
-<!--   <div class="expenses-container">
-  <% @payments.each do |p| %>
-    <p><%= p.amount %> Euros</p>
-    <p>Payer: <%= p.payer.first_name %></p>
-    <p>Beneficiary: <%= p.payee.first_name %></p>
-  <br>
-  <% end %>
-    <%= link_to 'Add received payment', new_family_payment_path(@family), class: 'payment-btn' %>
-  </div> -->
