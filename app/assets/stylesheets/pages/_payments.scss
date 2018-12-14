@@ -1,0 +1,32 @@
+.box-payments{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items:center;
+  margin-top: 21px;
+}
+.item{
+  flex: 1 1 auto;
+}
+
+p.item-2{
+    text-transform: uppercase !important;
+    text-align: center;
+    display: block;
+    margin-right:10%;
+}
+
+p.item-1 {
+    text-transform: uppercase !important;
+    text-align: center;
+    display: block;
+    margin-right:10%;
+}
+
+p.item-3 {
+    text-transform: uppercase !important;
+    text-align: center;
+    display: block;
+    margin-right:10%;
+}
