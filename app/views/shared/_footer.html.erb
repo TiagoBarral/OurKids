@@ -47,13 +47,11 @@
               <% balance = fam.outstanding_coparent_balance %>
               <h5><%= fam.coparent.first_name.capitalize %>: <%= balance %> €</h5>
               <% if balance > 0 %>
-              <div class="form" style="display: flex;">
                 <%= simple_form_for :balance, url: family_payments_pay_path(fam), method: :get do |f| %>
                   <%= f.hidden_field :balance, value: balance%>
                   <%= f.hidden_field :family, value: fam.parent.first_name%>
                   <%= f.submit "Pay" %>
                 <% end %>
-                </div>
               <% end %>
             <% elsif fam.coparent == current_user %>
               <% balance = fam.outstanding_coparent_balance %>
@@ -62,7 +60,7 @@
                 <%= simple_form_for :balance, url: family_payments_pay_path(fam), method: :get do |f| %>
                   <%= f.hidden_field :balance, value: balance %>
                   <%= f.hidden_field :family, value: fam.coparent.first_name%>
-                  <%= f.submit :Pay, class: "ghost-button-btn-balance" %>
+                  <%= f.submit "Pay" %>
                 <% end %>
               <% end %>
             <% end %>
@@ -79,7 +77,6 @@
         <% end %>
       </div>
       <div class="modal-footer">
-
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>

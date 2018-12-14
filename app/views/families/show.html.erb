@@ -12,10 +12,9 @@
     <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
     <% end %>
 
-      <%= link_to new_family_child_path(@family) do %>
+      <%= link_to families_coparent_path do %>
         <div class="round-btn-kid"><span>+</span></div>
       <% end %>
-      <%= link_to 'Payments History', families_path, class: 'ghost-button-btn-add' %>
 
   </div>
 </div>

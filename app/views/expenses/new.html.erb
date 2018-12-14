@@ -70,7 +70,7 @@
   </div>
   <div class="content-expenses">
     <%= f.collection_select :category, Category.order(:name),:id,:name, include_blank: true %>
-    <p><%= f.submit :Submit, class: "ghost-button-btn-newfamily" %></p>
+    <p><%= f.submit  %></p>
   </div>
   <% end %>
 </div>
