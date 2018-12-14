@@ -50,9 +50,21 @@
             <% if fam.parent == current_user %>
               <% balance = fam.outstanding_parent_balance %>
               <h5><%= fam.coparent.first_name.capitalize %>: <%= balance %> €</h5>
+              <% if balance < 0 %>
+                <%= simple_form_for :balance, url: family_payments_pay_path(fam), method: :get do |f| %>
+                <%= f.hidden_field :balance%>
+                <%= f.submit "Pay" %>
+                <% end %>
+              <% end %>
             <% elsif fam.coparent == current_user %>
               <% balance = fam.outstanding_coparent_balance %>
               <h5><%= fam.parent.first_name.capitalize %>: <%= balance %> €</h5>
+              <% if balance < 0 %>
+                <%= simple_form_for :balance, url: family_payments_pay_path(fam), method: :get do |f| %>
+                <%= f.hidden_field :balance %>
+                <%= f.submit "Pay" %>
+                <% end %>
+              <% end %>
             <% end %>
           <% end %>
           <% if current_user.balance >= 0 %>
