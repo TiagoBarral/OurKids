@@ -11,9 +11,11 @@
     <% @family.children.each do |child| %>
     <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
     <% end %>
-    <div class="button-kid">
-      <%= link_to '+', families_coparent_path, class: 'round-btn-kid' %>
-    </div>
+
+      <%= link_to families_coparent_path do %>
+        <div class="round-btn-kid"><span>+</span></div>
+      <% end %>
+
   </div>
 </div>
 
