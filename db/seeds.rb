@@ -55,6 +55,7 @@ children = []
   children << {
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
+    gender: rand(0..2)
   }
 end
 
