@@ -7,7 +7,7 @@
 </div>
 
 <div class= "family-dashboard">
-<%= form_for @expense do |f| %>
+  <%= form_for @expense do |f| %>
   <h5>Pick children</h5>
   <div class="thin-div-expense">
     <div class="large-div-expense">
@@ -69,5 +69,5 @@
     <%= f.collection_select :category, Category.order(:name),:id,:name, include_blank: true %>
     <p><%= f.submit  %></p>
   </div>
-<% end %>
+  <% end %>
 </div>
