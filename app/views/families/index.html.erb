@@ -1,7 +1,15 @@
 <div class="kids">
   <% if @families.empty? %>
-    <%= link_to 'Add a Family', families_coparent_path, class: 'btn btn-danger' %>
-    <%= link_to 'Invite a Co-parent', new_family_path, class: 'btn btn-danger' %>
+    <h2 class="text-align-left" style="margin-left:7%;">Family</h2>
+      <div class="thin-div">
+      <div class="large-div">
+    </div>
+  </div>
+  <div class= "family-dashboard">
+    <%= link_to 'Add a Family', families_coparent_path, class: 'ghost-button-btn' %><br>
+    <br>
+    <%= link_to 'Invite a Co-parent', new_family_path, class: 'ghost-button-green' %>
+  </div>
 
   <% else %>
   <h2 class="text-align-left" style="margin-left:7%;">Families</h2>
