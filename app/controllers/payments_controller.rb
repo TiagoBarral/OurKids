@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :find_family, only: [:index, :new, :create]
+  before_action :find_family, only: [:index, :new, :create, :stripe]
 
   def index
     @payments = @family.payments
@@ -26,10 +26,40 @@ class PaymentsController < ApplicationController
   end
 
   def pay
-    # view
+
   end
 
   def stripe
+    amount =  params[:payment][:balance]
+    @payment = Payment.new
+    @payment.amount = amount.to_i/100
+    @payment.family = @family
+    @payment.payer = current_user
+    if @family.parent == current_user
+      @family.save
+      @payment.payee = @family.coparent
+    elsif @family.coparent == current_user
+      @family.save
+      @payment.payee = @family.parent
+    end
+    @payment.save
+    redirect_to family_payments_path(@family)
+
+    #   customer = Stripe::Customer.create(
+    #     source: params[:stripeToken],
+    #     email:  params[:stripeEmail]
+    #   )
+
+    #   charge = Stripe::Charge.create(
+    #     customer:     customer.id,   # You should store this customer id and re-use it.
+    #     amount:       amount,
+    #     description:  "Pay coparent",
+    #     currency:    payment.amount.currency
+    #   )
+
+    # rescue Stripe::CardError => e
+    #   flash[:alert] = e.message
+    #   redirect_to new_order_payment_path(@order)
   end
 
   private

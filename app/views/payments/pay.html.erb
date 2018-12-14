@@ -1,7 +1,16 @@
 <!-- FORM -->
 <h1>Make a stripe payment below:</h1>
-<%= form_for :payment, url: family_payments_pay_path, method: :post do |f| %>
-  <!-- ĨMPLEMENT STRIPE FORM -->
-  <%= f.submit %>
-  <% end %>
-<%= raise %>
+<%=simple_form_for :payment, url: family_payments_pay_path do |f| %>
+  <% balance = params[:balance][:balance].to_i.abs*100 %>
+  <%= f.hidden_field :balance, value: balance%>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(balance/100)%></span>
+    </label>
+  </article>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="Balance update"
+    data-amount="<%= balance %>"
+    ></script>
+<% end %>

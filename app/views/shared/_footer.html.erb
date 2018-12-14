@@ -1,39 +1,35 @@
 <footer>
   <ul id="footerlist">
     <li><a href="/families"><img src="https://img.icons8.com/ios/50/000000/home.png"></img></a></li>
-
-    <% if params[:id].nil? && params[:family_id].nil? %>
-      <li style="opacity: 0.3;">
-        <img src="https://img.icons8.com/ios/50/000000/
+  <% if params[:id].nil? && params[:family_id].nil? %>
+    <li style="opacity: 0.3;">
+      <img src="https://img.icons8.com/ios/50/000000/
         time-machine.png"></img>
-      </li>
-    <% else %>
-      <% if params[:family_id] != nil %>
-        <li>
-          <%= link_to family_expenses_path(Family.find(params[:family_id])) do %>
-            <img src="https://img.icons8.com/ios/50/000000/time-machine.png"></img>
-          <% end %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to family_expenses_path(Family.find(params[:id])) do %>
-            <img src="https://img.icons8.com/ios/50/000000/time-machine.png"></img>
-          <% end %>
-        </li>
-      <% end %>
-    <% end %>
-    <li><a href="/expenses/new"><img src="https://img.icons8.com/ios/50/000000/plus-filled.png"></img></a></li>
-
+  </li>
+<% else %>
+  <% if params[:family_id] != nil %>
     <li>
-      <%= link_to "#newTag", data: { toggle: "modal" } do %>
-        <img src="https://img.icons8.com/ios/50/000000/cash-in-hand.png"></img>
-      <% end %>
-    </li>
-
-    <li><a href="/dashboard"><img src="https://img.icons8.com/ios/50/000000/user.png"></img></a></li>
+      <%= link_to family_expenses_path(Family.find(params[:family_id])) do %>
+        <img src="https://img.icons8.com/ios/50/000000/time-machine.png"></img>
+    <% end %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to family_expenses_path(Family.find(params[:id])) do %>
+      <img src="https://img.icons8.com/ios/50/000000/time-machine.png"></img>
+  <% end %>
+</li>
+<% end %>
+<% end %>
+<li><a href="/expenses/new"><img src="https://img.icons8.com/ios/50/000000/plus-filled.png"></img></a></li>
+<li>
+  <%= link_to "#newTag", data: { toggle: "modal" } do %>
+    <img src="https://img.icons8.com/ios/50/000000/cash-in-hand.png"></img>
+<% end %>
+</li>
+<li><a href="/dashboard"><img src="https://img.icons8.com/ios/50/000000/user.png"></img></a></li>
 </ul>
 </footer>
-
 <!-- Modal -->
 <div class="modal fade" id="newTag" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -48,21 +44,23 @@
         <% if user_signed_in? %>
           <% current_user.families.each do |fam| %>
             <% if fam.parent == current_user %>
-              <% balance = fam.outstanding_parent_balance %>
+              <% balance = fam.outstanding_coparent_balance %>
               <h5><%= fam.coparent.first_name.capitalize %>: <%= balance %> €</h5>
-              <% if balance < 0 %>
+              <% if balance > 0 %>
                 <%= simple_form_for :balance, url: family_payments_pay_path(fam), method: :get do |f| %>
-                <%= f.hidden_field :balance%>
-                <%= f.submit "Pay" %>
+                  <%= f.hidden_field :balance, value: balance%>
+                  <%= f.hidden_field :family, value: fam.parent.first_name%>
+                  <%= f.submit "Pay" %>
                 <% end %>
               <% end %>
             <% elsif fam.coparent == current_user %>
               <% balance = fam.outstanding_coparent_balance %>
               <h5><%= fam.parent.first_name.capitalize %>: <%= balance %> €</h5>
-              <% if balance < 0 %>
+              <% if balance > 0 %>
                 <%= simple_form_for :balance, url: family_payments_pay_path(fam), method: :get do |f| %>
-                <%= f.hidden_field :balance %>
-                <%= f.submit "Pay" %>
+                  <%= f.hidden_field :balance, value: balance %>
+                  <%= f.hidden_field :family, value: fam.coparent.first_name%>
+                  <%= f.submit "Pay" %>
                 <% end %>
               <% end %>
             <% end %>
@@ -85,4 +83,3 @@
     </div>
   </div>
 </div>
-
