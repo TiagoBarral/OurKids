@@ -1,35 +1,16 @@
 <!-- FORM -->
 <h1>Make a stripe payment below:</h1>
-<%=form_tag family_payments_pay_path do %>
+<%=simple_form_for :payment, url: family_payments_pay_path do |f| %>
+  <% balance = params[:balance][:balance].to_i.abs*100 %>
+  <%= f.hidden_field :balance, value: balance%>
   <article>
     <label class="amount">
-      <% if user_signed_in? %>
-        <% current_user.families.each do |fam| %>
-          <% if fam.parent == current_user %>
-            <% amount = fam.outstanding_parent_balance %>
-          <% elsif fam.coparent == current_user %>
-            <% amount = fam.outstanding_coparent_balance %>
-          <% end %>
-        <% end %>
-      <% else %>
-        <h4 class="text-right" style="color: red;">
-          You owe <%= current_user.balance.abs %> €
-        </h4>
-      <% end %>
-    <% end %>
-  </div>
-  <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-</label>
-</article>
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      <span>Amount: <%= humanized_money_with_symbol(balance/100)%></span>
+    </label>
+  </article>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Teddy"
-    data-email="<%= current_user.email %>"
-    data-description="Teddy <%= @order.teddy_sku %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="<%= @order.amount.currency %>"></script>
-<% end %>
-<%= form_for :payment, url: family_payments_pay_path, method: :post do |f| %>
-  <!-- ĨMPLEMENT STRIPE FORM -->
-  <%= f.submit %>
+    data-name="Balance update"
+    data-amount="<%= balance %>"
+    ></script>
 <% end %>
