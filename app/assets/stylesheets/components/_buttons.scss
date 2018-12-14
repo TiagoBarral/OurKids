@@ -7,7 +7,7 @@
   text-align: center;
   outline: none;
   text-decoration: none;
-  border-radius: 10px;
+  color:white;
 }
 
 .ghost-button-btn{
@@ -19,7 +19,31 @@
   text-align: center;
   outline: none;
   text-decoration: none;
-  border-radius: 10px;
+  color:white;
+}
+
+.ghost-button-green {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #75b9be;
+  border: 1px solid #75b9be;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  color:#75b9be;
+}
+
+.payment-btn{
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  background-color: #75b9be;
+  border: 1px solid #75b9be;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  color:white;
 }
 
 .round-btn-new {
