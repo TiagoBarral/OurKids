@@ -14,7 +14,10 @@
     </div>
   </div>
   <div class="content-expenses">
-    <%= f.collection_check_boxes(:id, current_user.children, :id, :first_name) %>
+    <% chidren_photos =  %>
+    <%= f.collection_check_boxes(:id, current_user.children, :id, :photo) do |b| %>
+    <% b.label(class: "check_box") { b.check_box(class: "check_box") + cl_image_tag(b.text, class: "avatar-medium")} %>
+    <% end %>
   </div>
 
   <h5>Pick date</h5>
