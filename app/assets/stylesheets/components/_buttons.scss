@@ -105,12 +105,17 @@
   margin-left: 77px;
 }
 
-
 .round-btn-new {
   background-color: #ff5a5f;
   color: white;
-  border-radius: 100px;
-  padding:12px;
+  border-radius: 50%;
+  font-size: 20px;
+  height: 70px;
+  width: 170px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .round-btn-kid {
