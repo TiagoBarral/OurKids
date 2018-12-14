@@ -6,7 +6,9 @@ class ChildrenController < ApplicationController
   end
 
   def create
-    @child = Child.create(child_params)
+    params[:child][:gender] = params[:child][:gender].to_i
+    @child = Child.new(child_params)
+    @child.save
     @fam_child = FamilyChild.new
     @fam_child.child = @child
     @fam_child.family = @family
@@ -20,7 +22,7 @@ class ChildrenController < ApplicationController
   private
 
   def child_params
-    params.require(:child).permit(:first_name, :last_name, :photo)
+    params.require(:child).permit(:first_name, :last_name, :gender, :photo)
   end
 
   def find_family
