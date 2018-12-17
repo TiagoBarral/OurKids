@@ -1,5 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :find_family, only: [:index]
+  layout 'devise', only: [:show]
 
   def index
     @expenses = @family.expenses.order(date: :desc).distinct
@@ -16,7 +17,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @user = current_user
-    @category = Category.find(params[:expense][:category])  unless params[:expense][:category].empty?
+    @category = Category.find(params[:expense][:category]) unless params[:expense][:category].empty?
     @expense.category = @category
     @expense.user = @user
     if @expense.save

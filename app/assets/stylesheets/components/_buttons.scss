@@ -195,4 +195,24 @@
 
 .space-to-skip {
   margin-right: 20px;
+
+.back-btn {
+  position: fixed;
+  margin-left: 3%;
+  margin-top: 5%;
+  color: black;
+}
+
+.expense-btn{
+  background-color: #ff5a5f;
+  color: white;
+  border-radius: 50%;
+  font-size: 40px;
+  height: 50px;
+  width: 50px;
+  margin-top: -5%;
+  margin-left: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

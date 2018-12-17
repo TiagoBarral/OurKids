@@ -1,0 +1,37 @@
+.expenses-show{
+  background-color: white;
+}
+
+.receipt{
+display:fixed;
+background-color: grey;
+height: 30vh;
+width: 100vw;
+}
+
+.expenses-infos{
+  display:fixed;
+  margin-left:8%;
+  margin-right:5%;
+
+  h2{
+    margin-top:-2%;
+    font-size:32px;
+    font-weight: 300;
+  }
+
+  h4{
+    font-size: 16px;
+    font-weight: 500;
+    color:#ddd9d8;
+  }
+
+  p{
+    font-size: 16px;
+    margin-bottom: 6%;
+  }
+}
+
+.expenses-show{
+  height:100vh;
+}
