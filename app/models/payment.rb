@@ -11,12 +11,12 @@ class Payment < ApplicationRecord
     parent = self.family.parent
     coparent = self.family.coparent
     if parent == payee
-      family.outstanding_parent_balance = family.outstanding_parent_balance.to_i - self.amount.to_i
-      family.outstanding_coparent_balance = family.outstanding_coparent_balance.to_i + self.amount.to_i
-      family.save
-    elsif parent == payer
       family.outstanding_parent_balance = family.outstanding_parent_balance.to_i + self.amount.to_i
       family.outstanding_coparent_balance = family.outstanding_coparent_balance.to_i - self.amount.to_i
+      family.save
+    elsif parent == payer
+      family.outstanding_parent_balance = family.outstanding_parent_balance.to_i - self.amount.to_i
+      family.outstanding_coparent_balance = family.outstanding_coparent_balance.to_i + self.amount.to_i
       family.save
     end
   end
