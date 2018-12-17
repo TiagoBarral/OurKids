@@ -1,8 +1,8 @@
 <div class="kids">
   <% if @families.empty? %>
-    <h2 class="text-align-left" style="margin-left:7%;">Family</h2>
-      <div class="thin-div">
-      <div class="large-div">
+  <h2 class="text-align-left" style="margin-left:7%;">Family</h2>
+  <div class="thin-div">
+    <div class="large-div">
     </div>
   </div>
   <div class= "family-dashboard">
@@ -21,14 +21,18 @@
 
 <div class= "family-dashboard">
   <% @families.each do |family| %>
-    <%= link_to family_path(family) do %>
+    <div class="family-index-dashboard">
+      <%= link_to family_path(family) do %>
       <h3>
-        <%= "#{family.parent.first_name} and #{family.coparent.first_name}'s Family" %>
+        <%= "#{family.parent.first_name} and #{family.coparent.first_name}'s family" %>
       </h3>
-        <% family.children.each do |child| %>
-          <%= cl_image_tag child.photo, class: 'avatar-medium' %>
-          <% end %>
-        <% end %>
+      <div class="index-kids">
+      <% family.children.each do |child| %>
+      <%= cl_image_tag child.photo, class: 'avatar-medium' %>
+      <% end %>
+      </div>
+      <% end %>
+    </div>
     <% end %>
   <% end %>
 </div>
