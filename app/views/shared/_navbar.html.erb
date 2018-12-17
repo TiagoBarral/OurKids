@@ -1,17 +1,20 @@
 <!-- LOG OUT -->
- <% if user_signed_in? %>
+<% if user_signed_in? %>
 <div class="navbar-wagon" id="top">
   <div class="dropdown">
-    <%= cl_image_tag current_user.photo, class: "avatar-small dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+    <%= cl_image_tag current_user.photo, class: "avatar-smedium dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
     <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
       <li>
+        <%= link_to 'Add a family', families_coparent_path %>
+      </li>
+      <li>
         <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
- <% else %>
-   <% end %>
+        <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+<% else %>
+<% end %>
 

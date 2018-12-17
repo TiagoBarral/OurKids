@@ -3,7 +3,7 @@
     <li><a href="/families"><img src="https://img.icons8.com/ios/45/000000/home.png"></img></a></li>
   <% if params[:id].nil? && params[:family_id].nil? %>
     <li style="opacity: 0.3;">
-      <img src="https://img.icons8.com/ios/50/000000/
+      <img src="https://img.icons8.com/ios/45/000000/
         time-machine.png"></img>
   </li>
 <% else %>
@@ -23,8 +23,8 @@
 <% end %>
 <li>
   <%= link_to form_path(:pick_date) do %>
-    <img src="https://img.icons8.com/ios/50/000000/plus-filled.png"></img>
-<% end %>
+    <i class="fas fa-plus-circle" style="font-size: 3em; margin-top: -7px; color: #75b9be;"></i>
+  <% end %>
 </li>
 <li>
   <%= link_to "#newTag", data: { toggle: "modal" } do %>
@@ -51,7 +51,9 @@
               <% balance = fam.outstanding_parent_balance %>
               <h5><%= fam.coparent.first_name.capitalize %>: <%= balance %> €</h5>
               <% if balance > 0 %>
-                <div class="formz" style="display: flex;">
+
+                <div class="form-footer" style="display: flex;">
+
                   <%= simple_form_for :balance, url: family_payments_pay_path(fam), method: :get do |f| %>
                     <%= f.hidden_field :balance, value: balance%>
                     <%= f.hidden_field :family, value: fam.parent.first_name%>

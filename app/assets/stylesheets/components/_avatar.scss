@@ -8,10 +8,18 @@
   width: 80px;
   height: 80px;
   border-radius: 100px;
+  margin: 5px;
+  box-shadow: 1px 1px 4px #75b9be;
 }
 
 .avatar-small {
   width: 40px;
+  border-radius: 50%;
+}
+
+.avatar-smedium{
+  margin-top: -5%;
+  width: 60px;
   border-radius: 50%;
 }
 

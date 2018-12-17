@@ -25,6 +25,9 @@
     margin-left:0px;
     font-weight: bold;
   }
+  p {
+    margin: 0;
+  }
 }
 
 .small-text-card {
@@ -56,10 +59,6 @@
   margin-left:20px;
 }
 
-.card-avatar{
-  padding-left: 67px;
-  margin-top: 10px;
-}
 
 .families{
   display: flex;
@@ -68,4 +67,20 @@
 
 .category{
   padding-left:10px;
+}
+
+.family-index-dashboard {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 30px;
+
+  h3{
+    color: #4d7c7f;
+    font-weight: 300;
+  }
+}
+
+.index-kids {
+  display: flex;
+  overflow-x: auto;
+  // justify-content: space-around;
 }

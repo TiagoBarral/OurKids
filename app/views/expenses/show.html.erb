@@ -5,26 +5,27 @@
   </div>
   <div class="expense-btn"><span>+</span></div>
   <div class="expenses-infos">
-    <h2>Clothes</h2>
-    <!-- expenses.title -->
-    <h4>VASCO</h4>
-    <!-- expenses.title -->
-    <p>20 SEPT. 2018</p>
-    <div class="thin-div-expenses">
-    </div>
+
+    <h2><%= @expense.title.capitalize %></h2> <!-- expenses.title -->
+    <h4><%= @expense.user.first_name.upcase %></h4>
+    <p><%= @expense.date.strftime("%d/%m/%Y") %></p>
+  <div class="thin-div-expenses">
+  </div>
+
     <h4>CATEGORY</h4>
-    <!-- expenses.title -->
-    <p>Clothes</p>
-    <div class="thin-div-expenses">
-    </div>
+    <p><%= @expense.category.name.capitalize %></p>
+  <div class="thin-div-expenses">
+  </div>
+
     <h4>DESCRIPTION</h4>
-    <!-- expenses.title -->
-    <p>Bought new clothes for Carlos, he needed some for his Karaté lessons</p>
-    <div class="thin-div-expenses">
-    </div>
+    <p><%= @expense.description.capitalize %></p>
+  <div class="thin-div-expenses">
+  </div>
+
     <h4>KIDS</h4>
-    <!-- expenses.title -->
-    <div class="avatar-medium">
+    <% @expense.children.each do |child| %>
+        <%= cl_image_tag child.photo, class: "avatar-medium"%>
+      <% end %>
     </div>
   </div>
   <div class="receipt-preview hidden">

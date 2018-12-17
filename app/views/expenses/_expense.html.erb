@@ -4,14 +4,14 @@
 
       <h4> <%= image_tag(category_icon(expense.category.name)) %></h4>
     </div>
-    <div class="card-title1">
+    <div class="card-title1" style="width: 105px;">
       <h4><%= expense.title.capitalize %></h4>
       <p><%= expense.date.strftime("%d/%m/%Y") %></p>
     </div>
     <div class="card-price">
       <%= humanized_money_with_symbol(expense.amount) %>
     </div>
-    <ul class="card-avatar">
+    <ul class="card-avatar" style="width: 50px; margin-right: -20px;">
       <% expense.children.each do |child| %>
         <li><%= cl_image_tag child.photo, class: "avatar-small"%></li>
       <% end %>

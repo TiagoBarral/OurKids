@@ -30,3 +30,6 @@
 </div>
 <%= render @family.expenses.order(updated_at: :desc).distinct.limit(4) %>
 </div>
+<div style="margin: 10px; margin-left: 30px; width: 355px;">
+  <%= link_to "Check paymets history", family_payments_path(@family), class: "ghost-button-green", id: "index-btn-special"  %>
+</div>

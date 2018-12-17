@@ -13,18 +13,26 @@
       <div class="families" style="display: flex; overflow-x: auto;">
         <% @families.each do |family| %>
           <div class="children">
+            <h5 class="text-center">
+              <% if current_user == family.coparent %>
+              <%= family.parent.first_name %>
+              <% else %>
+              <%= family.coparent.first_name %>
+              <% end %>
+            </h5>
             <% family.children.each do |child| %>
               <%= cl_image_tag child.photo, class: "avatar-medium"%>
             <% end %>
           </div>
         <% end %>
-        <%= link_to 'New', families_coparent_path, class: 'round-btn-new' %>
       </div>
     <% end %>
   </div>
-  <div class= "profile-dashboard">
-    <h4>Profile</h4>
-    <%= cl_image_tag current_user.photo, class: "avatar-medium" %>
-    <%= link_to '<img src="https://img.icons8.com/ios/20/000000/edit.png"> edit'.html_safe, edit_user_registration_path %>
+  <div class= "profile-dashboard" style="display: flex; justify-content: space-around;">
+    <div>
+      <h4>Profile</h4>
+      <%= cl_image_tag current_user.photo, class: "avatar-medium" %>
+      <%= link_to '<img src="https://img.icons8.com/ios/20/000000/edit.png"> edit'.html_safe, edit_user_registration_path %>
+    </div>
   </div>
 </div>
