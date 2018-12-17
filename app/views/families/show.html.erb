@@ -1,36 +1,32 @@
 <div class="kids">
-  <h2 class="text-align-left"><i class="fas fa-chevron-left"></i>The Kids</h2>
+  <h2 class="text-align-left" style="margin-left:7%;">The Kids</h2>
   <div class="thin-div">
     <div class="large-div">
     </div>
   </div>
 </div>
-
 <div class= "family-dashboard">
   <div class="families">
     <% @family.children.each do |child| %>
       <%= link_to family_child_expenses_path(@family, child) do %>
         <div style="position: relative;">
-        <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
+          <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
           <div class="total-child">
             <%= money_without_cents_and_with_symbol(child.total) %>
           </div>
         </div>
       <% end %>
     <% end %>
-
     <%= link_to new_family_child_path(@family) do %>
       <div class="round-btn-kid"><span>+</span></div>
     <% end %>
   </div>
 </div>
-
-
 <div class="latest">
   <h2 class="text-align-left"></i>Latest</h2>
-  <div class="thin-div">
-    <div class="large-div">
-    </div>
+<div class="thin-div">
+  <div class="large-div">
   </div>
-    <%= render @family.expenses.order(:updated_at).limit(4) %>
+</div>
+<%= render @family.expenses.order(updated_at: :desc).distinct.limit(4) %>
 </div>

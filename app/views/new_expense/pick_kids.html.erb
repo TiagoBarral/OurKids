@@ -1,0 +1,20 @@
+<div class="container">
+  <h3 style="margin: 0;">New expense</h3>
+  <div class= "family-dashboard">
+    <%= form_for @expense, url: wizard_path, method: :put do |f| %>
+    <h5>Pick children</h5>
+    <div class="thin-div-expense">
+      <div class="large-div-expense">
+      </div>
+    </div>
+    <div class="content-expenses">
+
+      <%= f.collection_check_boxes(:id, current_user.children, :id, :photo) do |b| %>
+      <% b.label(class: "check_box") { b.check_box(class: "check_box") + cl_image_tag(b.text, class: "avatar-medium")} %>
+      <% end %>
+    </div>
+      <%= f.submit "Next" %>
+    <% end %>
+  </div>
+</div>
+

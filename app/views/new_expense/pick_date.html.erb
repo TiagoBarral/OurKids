@@ -1,0 +1,25 @@
+<div class="container">
+  <h3 style="margin: 0;">New expense</h3>
+  <div class= "family-dashboard">
+    <%= form_for @expense, url: wizard_path, method: :put do |f| %>
+    <h5>Pick date</h5>
+    <div class="thin-div-expense">
+      <div class="large-div-expense">
+      </div>
+    </div>
+    <div class="content-expenses">
+      <%= f.date_field :date %>
+    </div>
+    <h5>Category</h5>
+    <div class="thin-div-expense">
+      <div class="large-div-expense">
+      </div>
+    </div>
+    <div class="content-expenses">
+      <%= f.collection_select :category, Category.order(:name),:id,:name, include_blank: true %>
+    </div>
+    <%= f.submit "Next", class: "ghost-button-btn-newfamily" %>
+  </div>
+  <% end %>
+  <%= link_to 'skip', next_wizard_path %>
+</div>

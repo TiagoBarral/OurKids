@@ -3,7 +3,7 @@ class ExpensesController < ApplicationController
   layout 'devise', only: [:show]
 
   def index
-    @expenses = @family.expenses
+    @expenses = @family.expenses.order(date: :desc).distinct
   end
 
   def show

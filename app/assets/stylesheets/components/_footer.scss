@@ -7,7 +7,7 @@ footer {
     position: fixed;
     left: 0;
     bottom: 0;
-    height: 70px;
+    height: 66px;
     width: 100%;
     padding-left: 25px;
 }
@@ -17,7 +17,10 @@ footer {
   display: inline;
   list-style-type: none;
   padding-right: 30px;
+  opacity: 0.8;
 }
+
+
 
 ul {
   display: flex;
