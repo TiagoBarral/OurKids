@@ -33,6 +33,15 @@
   text-decoration: none;
   color:#75b9be;
 }
+#index-btn-special {
+  min-width: 355px;
+}
+
+#add-received-payment {
+  margin: 10px;
+  margin-left: 30px;
+  min-width: 355px;
+}
 
 .payment-btn {
   margin-left: 25%;
@@ -142,7 +151,7 @@
   border-radius: 50%;
   font-size: 20px;
   height: 70px;
-  width: 170px;
+  width: 70px;
   margin-top: 50px;
   display: flex;
   justify-content: center;
