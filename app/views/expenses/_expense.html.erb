@@ -1,7 +1,8 @@
 <%= link_to family_expense_path(@family, expense) do %>
   <div class="card-latest1">
     <div class="category1">
-      <img src="https://img.icons8.com/ios/50/000000/flying-motarboard.png">
+
+      <h4> <%= image_tag(category_icon(expense.category.name)) %></h4>
     </div>
     <div class="card-title1">
       <h4><%= expense.title.capitalize %></h4>

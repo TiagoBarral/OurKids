@@ -70,7 +70,7 @@ puts 'Children created..'
 categories = []
 puts 'Creating categories'
 
-categories = %w[ EDUCATION HEALTH FUN VACATION FOOD SPORT CLOTHES OTHERS]
+categories = %w[EDUCATION HEALTH FUN VACATION FOOD SPORT CLOTHES OTHERS]
 
 categories.each do |category|
   Category.create(name: category)
