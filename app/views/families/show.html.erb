@@ -13,7 +13,7 @@
         <div style="position: relative;">
         <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
           <div class="total-child">
-            <%= humanized_money_with_symbol(child.total.without_cents) %>
+            <%= humanized_money_with_symbol(child.total) %>
           </div>
         </div>
       <% end %>
