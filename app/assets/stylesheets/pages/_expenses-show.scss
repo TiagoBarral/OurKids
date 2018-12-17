@@ -7,7 +7,13 @@ display:fixed;
 background-color: grey;
 height: 30vh;
 width: 100vw;
+overflow: hidden;
+  img{
+    width: 100vw;
+  }
 }
+
+.receipt:hover {opacity: 0.7;}
 
 .expenses-infos{
   display:fixed;
@@ -15,7 +21,6 @@ width: 100vw;
   margin-right:5%;
 
   h2{
-    margin-top:-2%;
     font-size:32px;
     font-weight: 300;
   }
@@ -34,4 +39,13 @@ width: 100vw;
 
 .expenses-show{
   height:100vh;
+}
+
+.receipt-preview {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  img{
+    width: 96%;
+  }
 }
