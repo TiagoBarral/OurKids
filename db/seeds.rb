@@ -73,7 +73,7 @@ puts 'Creating categories'
 categories = %w[ EDUCATION HEALTH FUN VACATION FOOD SPORT CLOTHES OTHERS]
 
 categories.each do |category|
-  Category.create(category)
+  Category.create(name: category)
 end
 
 puts 'Categories created..'
