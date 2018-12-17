@@ -68,12 +68,12 @@
             <% end %>
           <% end %>
           <% if current_user.balance >= 0 %>
-            <h4 class="text-right" style="color: green;">
-              Owed <%= current_user.balance.abs %> €
-            </h4>
-          <% else %>
             <h4 class="text-right" style="color: red;">
               You owe <%= current_user.balance.abs %> €
+            </h4>
+          <% else %>
+            <h4 class="text-right" style="color: green;">
+              You are owed <%= current_user.balance.abs %> €
             </h4>
           <% end %>
         <% end %>
