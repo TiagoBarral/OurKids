@@ -25,7 +25,8 @@ class Child < ApplicationRecord
   def total
     total = []
     expenses.each do |e|
-      total << e.amount
+      subtotal = e.amount / e.children.size
+      total << subtotal
     end
     total.sum
   end

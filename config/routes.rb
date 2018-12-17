@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
   resources :families, only: [:index, :show, :new, :create] do
     resources :children, only: [:new, :create]
+    get '/children/:id/expenses', to: 'children#expenses', as: 'child_expenses'
     resources :expenses
     resources :payments, only: [:index, :new, :create]
     get '/payments/pay', to: 'payments#pay'
