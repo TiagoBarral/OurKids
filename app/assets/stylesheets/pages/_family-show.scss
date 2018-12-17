@@ -67,8 +67,13 @@
 }
 
 .family-index-dashboard {
-  border-bottom: 1px solid #75b9be;
+  border-bottom: 1px solid #e0e0e0;
   padding-bottom: 30px;
+
+  h3{
+    color: #4d7c7f;
+    font-weight: 300;
+  }
 }
 
 .index-kids {
