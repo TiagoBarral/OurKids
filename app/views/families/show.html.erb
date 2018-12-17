@@ -9,13 +9,20 @@
 <div class= "family-dashboard">
   <div class="families">
     <% @family.children.each do |child| %>
-    <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
+      <%= link_to family_child_expenses_path(@family, child) do %>
+        <div style="position: relative;">
+        <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
+          <div class="total-child">
+            <%= humanized_money_with_symbol(child.total.without_cents) %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
 
-      <%= link_to new_family_child_path(@family) do %>
-        <div class="round-btn-kid"><span>+</span></div>
-      <% end %>
-      <%= link_to 'Payments History', families_path, class: 'ghost-button-btn-add' %>
+    <%= link_to new_family_child_path(@family) do %>
+      <div class="round-btn-kid"><span>+</span></div>
+    <% end %>
+    <%= link_to 'Payments History', families_path, class: 'ghost-button-btn-add' %>
 
   </div>
 </div>

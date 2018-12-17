@@ -20,6 +20,16 @@
   height: 150px;
   border-radius: 100px;
   margin-right: 10px;
+  position: relative;
+  opacity: 0.8;
+}
+.total-child {
+  position: absolute;
+  top: 103px;
+  left: 32px;
+  font-weight: bolder;
+  font-size: 1.5em;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .card-avatar li {

@@ -1,5 +1,5 @@
 class ChildrenController < ApplicationController
-  before_action :find_family, only: [:new, :create]
+  before_action :find_family, only: [:new, :create, :expenses]
 
   def new
     @child = Child.new
@@ -17,6 +17,11 @@ class ChildrenController < ApplicationController
     else
       render :new
     end
+  end
+
+  def expenses
+    @child = Child.find(params[:id])
+    @expenses = @child.expenses
   end
 
   private
