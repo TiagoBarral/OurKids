@@ -51,7 +51,9 @@
               <% balance = fam.outstanding_parent_balance %>
               <h5><%= fam.coparent.first_name.capitalize %>: <%= balance %> €</h5>
               <% if balance > 0 %>
+
                 <div class="form-footer" style="display: flex;">
+
                   <%= simple_form_for :balance, url: family_payments_pay_path(fam), method: :get do |f| %>
                     <%= f.hidden_field :balance, value: balance%>
                     <%= f.hidden_field :family, value: fam.parent.first_name%>

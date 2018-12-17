@@ -1,10 +1,11 @@
 <div class="expenses-show">
-<%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, root_path, class: 'back-btn' %>
-  <div class="receipt">
+  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, root_path, class: 'back-btn' %>
+  <div class="receipt" id="myReceipt" id="myModal" class="modal"  >
+    <%= cl_image_tag @expense.receipt%>
   </div>
   <div class="expense-btn"><span>+</span></div>
-
   <div class="expenses-infos">
+
     <h2><%= @expense.title.capitalize %></h2> <!-- expenses.title -->
     <h4><%= @expense.user.first_name.upcase %></h4>
     <p><%= @expense.date.strftime("%d/%m/%Y") %></p>
@@ -27,4 +28,6 @@
       <% end %>
     </div>
   </div>
-</div>
+  <div class="receipt-preview hidden">
+    <%= cl_image_tag @expense.receipt%>
+  </div>
