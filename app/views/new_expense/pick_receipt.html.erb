@@ -8,13 +8,15 @@
       </div>
     </div>
     <div class="content-expenses">
-      <%= f.file_field :receipt%>
+      <label class="upload-receipt-button"> <img src="data:image/png;base64,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">
+        <%= f.file_field :receipt %>
+      </label>
       <%= f.hidden_field :receipt_cache%>
     </div>
-    <%= f.submit "Next", class: "ghost-button-btn-newfamily" %>
+  <%= link_to 'skip', next_wizard_path, class: 'space-to-skip' %>
+    <%= f.submit "Next", class: "ghost-button-green" %>
   </div>
   <% end %>
 
-  <%= link_to 'skip', next_wizard_path %>
 
 </div>
