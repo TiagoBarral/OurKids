@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type =>  'image/png' %>
-    <title>OurKids</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type =>  'image/png' %>
+  <title>OurKids</title>
+  <meta name="description" content="OurKids is a webapp to help divorced (or not) parents in their day-to-day lives. Built by Vasco, Tiago, Mathilde and João - LeWagon Batch 205.">
+  <meta property="og:title" content="OurKids - Divorce has never been this easy">
+  <meta property="og:image" content="our-kids.jpg">
+  <meta property="og:url" content="http://www.ourkids.fun">
+  <meta property="og:description" content="OurKids is a webapp to help divorced (or not) parents in their day-to-day lives. Built by Vasco, Tiago, Mathilde and João - LeWagon Batch 205.">
+  <meta property="og:site_name" content="OurKids"/>
+
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+</head>
   <body>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
