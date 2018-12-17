@@ -70,11 +70,7 @@ puts 'Children created..'
 categories = []
 puts 'Creating categories'
 
-10.times do
-  categories << {
-    name: Faker::Cannabis.category
-  }
-end
+categories = %w[ EDUCATION HEALTH FUN VACATION FOOD SPORT CLOTHES OTHERS]
 
 categories.each do |category|
   Category.create(category)
