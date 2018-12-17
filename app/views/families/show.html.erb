@@ -28,5 +28,5 @@
   <div class="large-div">
   </div>
 </div>
-<%= render @family.expenses.order(:updated_at).limit(4) %>
+<%= render @family.expenses.order(updated_at: :desc).distinct.limit(4) %>
 </div>

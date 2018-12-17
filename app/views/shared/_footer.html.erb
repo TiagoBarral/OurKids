@@ -21,7 +21,11 @@
 </li>
 <% end %>
 <% end %>
-<li><a href="/expenses/new"><img src="https://img.icons8.com/ios/50/000000/plus-filled.png"></img></a></li>
+<li>
+  <%= link_to form_path(:pick_date) do %>
+    <img src="https://img.icons8.com/ios/50/000000/plus-filled.png"></img>
+  <% end %>
+</li>
 <li>
   <%= link_to "#newTag", data: { toggle: "modal" } do %>
     <img src="https://img.icons8.com/ios/45/000000/cash-in-hand.png"></img>

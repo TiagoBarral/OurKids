@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
   before_action :find_family, only: [:index]
 
   def index
-    @expenses = @family.expenses
+    @expenses = @family.expenses.order(date: :desc).distinct
   end
 
   def show

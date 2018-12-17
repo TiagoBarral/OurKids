@@ -1,0 +1,20 @@
+<div class="container">
+  <h3 style="margin: 0;">New expense</h3>
+  <div class= "family-dashboard">
+    <%= form_for @expense, url: wizard_path, method: :put do |f| %>
+    <h5>Upload a receipt</h5>
+    <div class="thin-div-expense">
+      <div class="large-div-expense">
+      </div>
+    </div>
+    <div class="content-expenses">
+      <%= f.file_field :receipt%>
+      <%= f.hidden_field :receipt_cache%>
+    </div>
+    <%= f.submit "Next", class: "ghost-button-btn-newfamily" %>
+  </div>
+  <% end %>
+
+  <%= link_to 'skip', next_wizard_path %>
+
+</div>
