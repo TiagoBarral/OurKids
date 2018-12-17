@@ -5,6 +5,7 @@
   height: 70px;
   margin-left:30px;
   margin-top:10px;
+  justify-content: space-around;
   align-items: center;
 
   h4{
@@ -34,14 +35,22 @@
 .card-price{
   display: inline;
   margin-top:10px;
-  margin-left:30px;
+  margin-left: -10px;
   margin-bottom: 12px;
+  // display: absolute !important;
+  // right: 100px;
 }
 
 .card-title1{
   display: inline;
   margin-top:10px;
-  margin-left:15px;
+  // margin-left:15px;
+}
+
+.card-avatar{
+  // padding-left: px;
+  margin-top: 10px;
+  margin-right: 20px;
 }
 
 .card-avatar1{

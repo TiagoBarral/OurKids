@@ -56,10 +56,6 @@
   margin-left:20px;
 }
 
-.card-avatar{
-  padding-left: 67px;
-  margin-top: 10px;
-}
 
 .families{
   display: flex;
@@ -68,4 +64,14 @@
 
 .category{
   padding-left:10px;
+}
+
+.family-index-dashboard {
+  border-bottom: 1px solid #75b9be;
+  padding-bottom: 30px;
+}
+
+.index-kids {
+  display: flex;
+  // justify-content: space-around;
 }
