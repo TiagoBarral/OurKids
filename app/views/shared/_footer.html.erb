@@ -1,6 +1,6 @@
 <footer>
   <ul id="footerlist">
-    <li><a href="/families"><img src="https://img.icons8.com/ios/50/000000/home.png"></img></a></li>
+    <li><a href="/families"><img src="https://img.icons8.com/ios/45/000000/home.png"></img></a></li>
   <% if params[:id].nil? && params[:family_id].nil? %>
     <li style="opacity: 0.3;">
       <img src="https://img.icons8.com/ios/50/000000/
@@ -10,13 +10,13 @@
   <% if params[:family_id] != nil %>
     <li>
       <%= link_to family_expenses_path(Family.find(params[:family_id])) do %>
-        <img src="https://img.icons8.com/ios/50/000000/time-machine.png"></img>
+        <img src="https://img.icons8.com/ios/45/000000/time-machine.png"></img>
     <% end %>
   </li>
 <% else %>
   <li>
     <%= link_to family_expenses_path(Family.find(params[:id])) do %>
-      <img src="https://img.icons8.com/ios/50/000000/time-machine.png"></img>
+      <img src="https://img.icons8.com/ios/45/000000/time-machine.png"></img>
   <% end %>
 </li>
 <% end %>
@@ -24,10 +24,10 @@
 <li><a href="/expenses/new"><img src="https://img.icons8.com/ios/50/000000/plus-filled.png"></img></a></li>
 <li>
   <%= link_to "#newTag", data: { toggle: "modal" } do %>
-    <img src="https://img.icons8.com/ios/50/000000/cash-in-hand.png"></img>
+    <img src="https://img.icons8.com/ios/45/000000/cash-in-hand.png"></img>
 <% end %>
 </li>
-<li><a href="/dashboard"><img src="https://img.icons8.com/ios/50/000000/user.png"></img></a></li>
+<li><a href="/dashboard"><img src="https://img.icons8.com/ios/45/000000/user.png"></img></a></li>
 </ul>
 </footer>
 <!-- Modal -->
