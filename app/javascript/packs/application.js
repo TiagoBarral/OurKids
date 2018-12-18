@@ -5,13 +5,11 @@ import Chartkick from "chartkick";
 
 window.Chartkick = Chartkick;
 
-
-
 import '../components/filter'
 
 
- toggleHiddenOnClick();
+toggleHiddenOnClick();
 
 setTimeout(function() {
-    $('.alert-dismissible').fadeOut('fast');
+  $('.alert-dismissible').fadeOut('fast');
 }, 3000); // <-- time in milliseconds
