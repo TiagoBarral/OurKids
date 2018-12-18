@@ -1,23 +1,28 @@
 footer {
-    background-color: rgb(247,247,247);
-    border-top: 1px solid #E7E7E7;
-    text-align:center;
-    padding:12px;
+  background-color: rgb(247,247,247);
+  border-top: 1px solid #E7E7E7;
+  text-align:center;
+  padding:12px;
 
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 66px;
-    width: 100%;
-    padding-left: 25px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 66px;
+  width: 100%;
+  padding-left: 25px;
 }
 
 #footerlist li
 {
-  display: inline;
   list-style-type: none;
   padding-right: 30px;
   opacity: 0.8;
+  margin: 0 !important;
+  padding: 0 !important;
+  .history-btn {
+    padding-left: 7px;
+    margin-right: -7px;
+  }
 }
 
 
@@ -25,5 +30,6 @@ footer {
 ul {
   display: flex;
   padding-left:0;
+  justify-content: space-between;
 }
 
