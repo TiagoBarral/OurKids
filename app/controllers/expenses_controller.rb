@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :find_family, only: [:index]
+  before_action :find_family, only: [:index, :show, :edit]
   layout 'devise', only: [:show]
 
   def index
@@ -10,31 +10,18 @@ class ExpensesController < ApplicationController
     @expense = Expense.find(params[:id])
   end
 
-  def new
-    @expense = Expense.new
+  def edit
+    @expense = Expense.find(params[:id])
   end
 
-  def create
-    @expense = Expense.new(expense_params)
-    @user = current_user
+  def update
+    @expense = Expense.find(params[:id])
     @category = Category.find(params[:expense][:category]) unless params[:expense][:category].empty?
     @expense.category = @category
-    @expense.user = @user
-    if @expense.save
-      children = []
-      params[:expense][:id].each do |id|
-        children << Child.find(id) unless id.empty?
-      end
-      children.each do |child|
-        @child_expense = ChildExpense.new
-        @child_expense.expense = @expense
-        @child_expense.child = child
-        @child_expense.save
-      end
-
+    if @expense.update(expense_params)
       redirect_to families_path
     else
-      render :new
+      render :edit
     end
   end
 

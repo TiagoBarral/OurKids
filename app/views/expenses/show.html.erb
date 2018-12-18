@@ -3,7 +3,11 @@
   <div class="receipt" id="myReceipt" id="myModal" class="modal"  >
     <%= cl_image_tag @expense.receipt%>
   </div>
-  <div class="expense-btn"><span>+</span></div>
+  <div class="expense-btn">
+    <%= link_to edit_family_expense_path(@family, @expense) do %>
+    <i class="far fa-edit" style="font-size: 25px;"></i>
+    <% end %>
+  </div>
   <div class="expenses-infos">
 
     <h2><%= @expense.title.capitalize %></h2> <!-- expenses.title -->

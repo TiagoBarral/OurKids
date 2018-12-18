@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :families, only: [:index, :show, :new, :create] do
     resources :children, only: [:new, :create]
     get '/children/:id/expenses', to: 'children#expenses', as: 'child_expenses'
-    resources :expenses
+    resources :expenses, only: [:index, :show, :edit, :update]
     resources :payments, only: [:index, :new, :create]
     get '/payments/pay', to: 'payments#pay'
     post '/payments/pay', to: 'payments#stripe'
