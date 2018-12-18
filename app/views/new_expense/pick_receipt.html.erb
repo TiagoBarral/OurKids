@@ -7,7 +7,7 @@
   <div class= "family-dashboard1 form1" style="margin-top: 44px;">
     <%= form_for @expense, url: wizard_path, method: :put do |f| %>
     <h5>Upload a receipt</h5>
-    <div class="thin-div-expense1">
+    <div class="thin-div-expensee">
       <div class="large-div-expense">
       </div>
     </div>
@@ -18,8 +18,8 @@
       <%= f.hidden_field :receipt_cache%>
     </div>
 
-    <%= f.submit "Next", class: "ghost-button-btn-newfamily2" %>
-  <%= link_to 'Skip', next_wizard_path, class: "ghost-button-btn-newfamily2" %>
+    <%= f.submit "Next", class: "ghost-button-btn-newfamily4" %>
+  <%= link_to 'Skip', next_wizard_path, class: "ghost-button-btn-newfamily4" %>
   <% end %>
 
 
