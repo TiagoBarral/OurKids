@@ -1,5 +1,9 @@
-<div class="container">
-  <h3 style="margin: 0;">New expense</h3>
+  <div class="kids">
+  <h2 class="text-align-left" style="margin-left:7%;font-weight: 600;">New expense</h2>
+  <div class="thin-div">
+    <div class="large-div">
+    </div>
+  </div>
   <div class= "family-dashboard">
     <%= form_for @expense, url: wizard_path, method: :put do |f| %>
     <h5>Pick children</h5>
@@ -13,7 +17,7 @@
       <% b.label(class: "check_box") { b.check_box(class: "check_box") + cl_image_tag(b.text, class: "avatar-medium")} %>
       <% end %>
     </div>
-      <%= f.submit "Finish" , class: "ghost-button-btn-newfamily" %>
+      <%= f.submit "Finish" , class: "ghost-button-btn-newfamily3" %>
     <% end %>
   </div>
 </div>
