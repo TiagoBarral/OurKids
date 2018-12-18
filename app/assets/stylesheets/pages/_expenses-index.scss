@@ -17,7 +17,7 @@
 
 .expenses-container {
   overflow-y: auto;
-  height: 75vh;
+  height: 66vh;
 }
 
 // .card-wrapper1 {
@@ -70,6 +70,9 @@
   align-content: center;
   align-items:center;
   margin-top: 21px;
+  p {
+    // margin-bottom: 0;
+  }
 }
 .item{
   flex: 1 1 auto;
