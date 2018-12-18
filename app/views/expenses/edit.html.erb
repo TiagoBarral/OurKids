@@ -1,5 +1,5 @@
 <div class="kids">
-  <h2 class="text-align-left" style="margin-left:30px;"></i>New expense</h2>
+  <h2 class="text-align-left" style="margin-left:30px;"></i>Edit expense</h2>
   <div class="thin-div">
     <div class="large-div">
     </div>
@@ -7,20 +7,8 @@
 </div>
 
 <div class= "family-dashboard">
-  <%= form_for @expense do |f| %>
-  <h5>Pick children</h5>
-  <div class="thin-div-expense">
-    <div class="large-div-expense">
-    </div>
-  </div>
-  <div class="content-expenses">
-
-    <%= f.collection_check_boxes(:id, current_user.children, :id, :photo) do |b| %>
-    <% b.label(class: "check_box") { b.check_box(class: "check_box") + cl_image_tag(b.text, class: "avatar-medium")} %>
-    <% end %>
-  </div>
-
-  <h5>Pick date</h5>
+  <%= form_for [@family, @expense] do |f| %>
+    <h5>Pick date</h5>
   <div class="thin-div-expense">
     <div class="large-div-expense">
     </div>
