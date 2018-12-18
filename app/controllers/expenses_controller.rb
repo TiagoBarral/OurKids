@@ -4,6 +4,7 @@ class ExpensesController < ApplicationController
 
   def index
     @expenses = @family.expenses.order(date: :desc).distinct
+    @categories = Category.all.map { |c| c.name }
   end
 
   def show

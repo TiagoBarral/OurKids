@@ -1,5 +1,6 @@
 import "bootstrap";
 import { toggleHiddenOnClick} from '../components/receipt';
+import '../components/filter'
 
  toggleHiddenOnClick();
 

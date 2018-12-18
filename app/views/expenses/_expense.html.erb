@@ -1,4 +1,5 @@
 <%= link_to family_expense_path(@family, expense) do %>
+  <%= div_for expense, class: expense.category.name do %>
   <div class="card-latest1">
     <div class="category1">
 
@@ -17,4 +18,5 @@
       <% end %>
     </ul>
   </div>
+  <% end %>
 <% end %>
