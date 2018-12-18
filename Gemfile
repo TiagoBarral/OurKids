@@ -21,7 +21,7 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'stripe'
 gem 'wicked'
-
+gem 'chartkick'
 gem 'faker'
 
 group :development do
