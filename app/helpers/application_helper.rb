@@ -1,21 +1,21 @@
 module ApplicationHelper
   def category_icon(category)
     case category
-    when 'EDUCATION'
+    when 'Education'
       return 'https://img.icons8.com/ios/30/000000/flying-motarboard.png'
-    when 'HEALTH'
+    when 'Health'
       return 'https://img.icons8.com/ios/30/000000/stethoscope.png'
-    when 'FUN'
+    when 'Fun'
       return 'https://img.icons8.com/ios/30/000000/crazy.png'
-    when 'VACATION'
+    when 'Vacation'
       return 'https://img.icons8.com/ios/30/000000/sunbathe.png'
-    when 'FOOD'
+    when 'Food'
       return 'https://img.icons8.com/ios/30/000000/food.png'
-    when 'SPORT'
+    when 'Sport'
       return 'https://img.icons8.com/ios/30/000000/trampoline-park.png'
-    when 'CLOTHES'
+    when 'Clothes'
       return 'https://img.icons8.com/ios/30/000000/clothes.png'
-    when 'OTHERS'
+    when 'Others'
       return 'https://img.icons8.com/ios/30/000000/connection-status-off.png'
     end
   end
