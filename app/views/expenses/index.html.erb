@@ -8,7 +8,7 @@
 
 <div style="margin: 10px 0px -10px 30px;">
   Filter by:
-  <%= select("post", "category", Category.all.map{|c| c.name}, {include_blank: 'Select Category Filter'}) %>
+  <%= select("post", "category", Category.all.map{|c| c.name}, {include_blank: 'Category'}) %>
 </div>
 <div class="box">
   <p class="item1">Expenses</p>
