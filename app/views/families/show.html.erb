@@ -1,5 +1,10 @@
 <div class="kids">
-  <h2 class="text-align-left" style="margin-left:7%;">The Kids</h2>
+  <div style="display: flex; align-items: center;">
+    <h2 class="text-align-left" style="margin-left:7%;">The Kids</h2>
+    <%= link_to "#chartkickmodal", data: { toggle: "modal" }, class: 'ontop' do %>
+    <i class="fas fa-chart-pie" style="font-size: 1.5em; padding-left: 25px;"></i>
+    <% end %>
+  </div>
   <div class="thin-div">
     <div class="large-div">
     </div>
@@ -8,36 +13,52 @@
 <div class= "family-dashboard">
   <div class="families">
     <% @family.children.each do |child| %>
-      <%= link_to family_child_expenses_path(@family, child) do %>
-        <div style="position: relative;">
-          <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
-          <div class="total-child">
-            <%= money_without_cents_and_with_symbol(child.total) %>
-          </div>
-        </div>
-      <% end %>
+    <%= link_to family_child_expenses_path(@family, child) do %>
+    <div style="position: relative;">
+      <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
+      <div class="total-child">
+        <%= money_without_cents_and_with_symbol(child.total) %>
+      </div>
+    </div>
+    <% end %>
     <% end %>
     <%= link_to new_family_child_path(@family) do %>
-      <div class="round-btn-kid"><span>+</span></div>
+    <div class="round-btn-kid"><span>+</span></div>
     <% end %>
   </div>
 </div>
 <div class="latest">
   <h2 class="text-align-left"></i>Latest</h2>
-<div class="thin-div">
-  <div class="large-div">
+  <div class="thin-div">
+    <div class="large-div">
+    </div>
   </div>
-</div>
-<%= render @family.expenses.order(updated_at: :desc).distinct.limit(4) %>
+  <%= render @family.expenses.order(updated_at: :desc).distinct.limit(4) %>
 </div>
 <div style="margin: 10px; margin-left: 30px; width: 85%;">
   <%= link_to "Check paymets history", family_payments_path(@family), class: "ghost-button-green", id: "index-btn-special"  %>
 </div>
 <% children = []  %>
 <% @family.children.each do |child|  %>
-  <% childs = []  %>
-  <% childs << child.first_name %>
-  <% childs << child.total.fractional %>
-  <% children << childs  %>
+<% childs = []  %>
+<% childs << child.first_name %>
+<% childs << child.total.fractional / 100 %>
+<% children << childs  %>
 <% end  %>
 <%= pie_chart children %>
+
+<div class="modal fade" id="chartkickmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Stats</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= pie_chart children %>
+      </div>
+    </div>
+  </div>
+</div>
