@@ -6,12 +6,16 @@
   </div>
 </div>
 
-  <div class="box">
-    <p class="item1">Expenses</p>
-    <p class="item">Amount</p>
-    <p class="item2">Kids</p>
-  </div>
+<div style="margin: 10px 0px -10px 30px;">
+  Filter by:
+  <%= select("post", "category", Category.all.map{|c| c.name}, {include_blank: 'Category'}) %>
+</div>
+<div class="box">
+  <p class="item1">Expenses</p>
+  <p class="item">Amount</p>
+  <p class="item2">Kids</p>
+</div>
 
-  <div class="expenses-container">
-   <%= render @expenses %>
-  </div>
+<div class="expenses-container">
+ <%= render @expenses %>
+</div>

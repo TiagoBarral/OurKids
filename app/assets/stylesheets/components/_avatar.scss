@@ -18,9 +18,10 @@
 }
 
 .avatar-smedium{
-  margin-top: -5%;
-  width: 60px;
+  margin-top: -27%;
+  width: 55px;
   border-radius: 50%;
+  height: 55px;
 }
 
 .avatar-Xlarge{
@@ -30,6 +31,7 @@
   margin-right: 10px;
   position: relative;
   opacity: 0.8;
+  z-index: -1;
 }
 .total-child {
   position: absolute;

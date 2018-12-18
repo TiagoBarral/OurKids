@@ -1,6 +1,10 @@
-<div class="container">
-  <h3 style="margin: 0;">New expense</h3>
-  <div class= "family-dashboard">
+  <div class="kids">
+  <h2 class="text-align-left" style="margin-left:7%;font-weight: 600;">New expense</h2>
+  <div class="thin-div">
+    <div class="large-div">
+    </div>
+  </div>
+  <div class= "family-dashboard1 form1" style="margin-top: 44px;">
     <%= form_for @expense, url: wizard_path, method: :put do |f| %>
     <h5>Upload a receipt</h5>
     <div class="thin-div-expense">
@@ -13,9 +17,9 @@
       </label>
       <%= f.hidden_field :receipt_cache%>
     </div>
-  <%= link_to 'skip', next_wizard_path, class: 'space-to-skip' %>
-    <%= f.submit "Next", class: "ghost-button-green" %>
-  </div>
+    <%= f.submit "Next", class: "ghost-button-btn-newfamily2" %>
+  <%= link_to 'Skip', next_wizard_path, class: "ghost-button-btn-newfamily2" %>
+
   <% end %>
 
 
