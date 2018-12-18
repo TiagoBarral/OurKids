@@ -17,7 +17,7 @@ class ExpensesController < ApplicationController
   def update
     @expense = Expense.find(params[:id])
     @category = Category.find(params[:expense][:category]) unless params[:expense][:category].empty?
-    @expense.category = @category
+    @expense.category = @category unless @category.nil?
     if @expense.update(expense_params)
       redirect_to families_path
     else

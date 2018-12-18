@@ -57,7 +57,7 @@
     </div>
   </div>
   <div class="content-expenses">
-    <%= f.collection_select :category, Category.order(:name),:id,:name, include_blank: true %>
+    <%= f.collection_select :category, Category.order(:name),:id,:name, include_blank: '*leave blank if unchanged*' %>
     <p><%= f.submit :Submit, class: "ghost-button-btn-newfamily" %></p>
   </div>
   <% end %>
