@@ -158,3 +158,7 @@ end
 
 
 puts "TRAP ---> WITH USER.SAMPLE PAYER AND PAYEE CAN BE THE SAME"
+
+
+
+children_pics = %w[https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/r0slGlPLiq71cgwa/little-cute-kid-boy-face-portrait-closeup-grimace-smile-on-camera_sjaki1coe_thumbnail-full01.png https://www.safekids.org/sites/default/files/Safe_Kids_Day/marketing_materials/boy_smiling.jpg http://kids.wazobiamax.ng/wp-content/uploads/2017/12/Slider-boy2.png]

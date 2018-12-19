@@ -1,9 +1,6 @@
 <div class="kids">
   <div style="display: flex; align-items: center;">
     <h2 class="text-align-left" style="margin-left:7%;">The Kids</h2>
-    <%= link_to "#chartkickmodal", data: { toggle: "modal" }, class: 'ontop' do %>
-    <i class="fas fa-chart-pie" style="font-size: 1.5em; padding-left: 25px;"></i>
-    <% end %>
   </div>
   <div class="thin-div">
     <div class="large-div">
@@ -16,9 +13,9 @@
     <%= link_to family_child_expenses_path(@family, child) do %>
     <div style="position: relative;">
       <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
-      <div class="total-child">
+      <!-- <div class="total-child">
         <%= money_without_cents_and_with_symbol(child.total) %>
-      </div>
+      </div> -->
     </div>
     <% end %>
     <% end %>
@@ -45,20 +42,14 @@
 <% childs << (child.total > 0 ? (child.total.fractional / 100) : 0) %>
 <% children << childs  %>
 <% end  %>
-<%= pie_chart children %>
 
-<div class="modal fade" id="chartkickmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLabel">Stats</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= pie_chart children %>
-      </div>
+<div class="latest">
+  <h2 class="text-align-left"></i>Stats</h2>
+  <div class="thin-div">
+    <div class="large-div">
     </div>
+  </div>
+  <div style="margin-left: 30px; margin-top: 10px; width: 85%">
+    <%= pie_chart children %>
   </div>
 </div>
