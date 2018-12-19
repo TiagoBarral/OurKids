@@ -27,7 +27,9 @@ class NewExpenseController < ApplicationController
         @child_expense.child = child
         @child_expense.save
       end
-      return redirect_to families_path
+      @family = children.first.families.first
+      @expense = Expense.last
+      return redirect_to family_expense_path(@family, @expense)
     when :pick_date
       @expense = Expense.new(expense_date_params)
       @expense.user = current_user

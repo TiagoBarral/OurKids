@@ -11,8 +11,8 @@
   <div class="expenses-infos">
     <h2><%= @expense.title.capitalize %></h2>
      <!-- expenses.title -->
-    <h4><%= @expense.user.first_name.upcase %></h4>
-    <p><%= @expense.date.strftime("%d/%m/%Y") %></p>
+    <h4>Paid by: <%= @expense.user.first_name.upcase %></h4>
+    <p>On: <%= @expense.date.strftime("%d/%m/%Y") %></p>
     <div class="thin-div-expenses">
     </div>
     <h4>CATEGORY</h4>
@@ -21,6 +21,10 @@
     </div>
     <h4>DESCRIPTION</h4>
     <p><%= @expense.description.capitalize %></p>
+    <div class="thin-div-expenses">
+    </div>
+    <h4>Price</h4>
+    <p>Total: <%= humanized_money_with_symbol(@expense.amount) %></p>
     <div class="thin-div-expenses">
     </div>
     <h4>KIDS</h4>
