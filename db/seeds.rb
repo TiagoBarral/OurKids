@@ -23,19 +23,23 @@ User.destroy_all
 users = []
 puts 'Creating users'
 
-5.times do
-  users << {
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: 'ourkids'
-  }
-end
-
 users << {
   first_name: 'Vasco',
   last_name: 'Figueiredo',
   email: 'vaskafig@gmail.com',
+  password: 'ourkids'
+}
+users << {
+  first_name: 'Sheila',
+  last_name: 'Tarot',
+  email: 'sheila@gmail.com',
+  password: 'ourkids'
+}
+
+users << {
+  first_name: 'Maria',
+  last_name: 'do mal',
+  email: 'maria@gmail.com',
   password: 'ourkids'
 }
 
@@ -51,11 +55,11 @@ puts 'Users created..'
 puts 'Creating children'
 children = []
 
-20.times do
+3.times do
   children << {
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    gender: rand(0..2)
+    gender: rand(0..1)
   }
 end
 
@@ -80,53 +84,156 @@ puts 'Categories created..'
 
 # FAMILIES
 
-User.count.times do
-  fam = Family.new
-  fam.parent = User.all.sample
-  fam.coparent = User.all.sample
-  fam.save
-end
+
+fam = Family.new
+fam.parent = User.first
+fam.coparent = User.last
+fam.save
+
 puts 'families created'
+
+parent_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544111156/rf61zuqqbpmfe6xh8ti1.jpg'
+mother_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544188763/abtabr4rjfvouddfxvme.jpg'
+mother2_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544112584/dnpogzmvpalzivu9ewil.jpg'
+kid1_photo = 'https://www.connectonenow.org/wp-content/uploads/2016/08/jershiaa.jpg'
+kid2_photo = 'https://www.theoldglobe.org/globalassets/images/2017-2018/grinch-2017/headshot/hayden-hartpence.jpg?id=27794'
+kid3_photo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtoSYHsKDWh01WEV2AeVDlZ6--jAg4Bhz9ubN-Z_AK5nNMntblBQ'
+receipt1_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544195045/42552935.jpg'
+receipt2_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544195045/36212418.jpg'
 
 #FAMILYCHILDREN
 
-Child.all.each do |child|
-  fam = FamilyChild.new
-  fam.child = child
-  fam.family = Family.all.sample
-  fam.save
-end
+Child.first.update(remote_photo_url: kid1_photo)
+Child.find(Child.last.id - 1).update(remote_photo_url: kid2_photo)
+Child.last.update(remote_photo_url: kid3_photo)
 
+child = Child.first
+fam = FamilyChild.new
+fam.child = child
+fam.family = Family.first
+fam.save
+
+child = Child.find(Child.last.id - 1)
+fam = FamilyChild.new
+fam.child = child
+fam.family = Family.first
+fam.save
+
+child = Child.last
+fam = FamilyChild.new
+fam.child = child
+fam.family = Family.first
+fam.save
+
+
+
+# par.remote_photo_url = parent_photo
+# mot1.remote_photo_url = mother_photo
+# mot2.remote_photo_url = mother2_photo
+# rec1.remote_photo_url = receipt1_photo
+# rec2.remote_photo_url = receipt2_photo
+
+# par.save
+# mot1.save
+# mot2.save
+# kid1.save
+# kid2.save
+# kid3.save
+# rec1.save
+# rec2.save
 
 # EXPENSES
 
 expenses = []
 puts 'Creating expenses'
 
-50.times do
-  expenses << {
-    title: Faker::Lorem.word,
-    description: Faker::Lorem.paragraph,
-    date: Faker::Date.forward(23),
-    amount: rand(1..100),
-    percentage: rand(25..75)
-  }
-end
+
+
+expenses << {
+  title: 'MacDonalds',
+  description:'Happy meanl madness',
+  date: Faker::Date.backward(27),
+  amount: 15,
+  percentage: 50
+}
+
+
+expenses << {
+  title: 'Ice cream',
+  description:'Santini snack',
+  date: Faker::Date.backward(29),
+  amount: 5,
+  percentage: 50
+}
+
+
+expenses << {
+  title: 'Pizzahut',
+  description:'No time to cook, just order some pizza',
+  date: Faker::Date.backward(31),
+  amount: 36,
+  percentage: 50
+}
+
+expenses << {
+  title: 'Cinema',
+  description:'Batman returns again',
+  date: Faker::Date.backward(25),
+  amount: 20,
+  percentage: 50
+}
+
+expenses << {
+  title: 'Karts',
+  description:'Awsome day driving karts',
+  date: Faker::Date.backward(33),
+  amount: 50,
+  percentage: 50
+}
+
+expenses << {
+  title: 'Dentist',
+  description:'trip to the dentist',
+  date: Faker::Date.backward(23),
+  amount: 50,
+  percentage: 50
+}
+
+i=0
 
 expenses.each do |expense|
-  exp = Expense.new(expense)
-  user = User.all.sample
-  exp.user = user
-  exp.category = Category.all.sample
-  exp.save
+
+  i += 1
+
+  if i < 4
+    exp = Expense.new(expense)
+    exp.user = User.first
+    exp.category = Category.find_by(name: 'Food')
+    exp.save
+
+  elsif i < 6
+    exp = Expense.new(expense)
+    exp.user = User.first
+    exp.category = Category.find_by(name: 'Fun')
+    exp.save
+  else
+    exp = Expense.new(expense)
+    exp.user = User.first
+    exp.category = Category.find_by(name: 'Health')
+    exp.save
+  end
 end
 
 
+i = -1
 Expense.all.each do |expense|
-  rand(1..4).times do
+  i = -1
+  rand(1..3).times do
+    i += 1
     exp = ChildExpense.new
     exp.expense = expense
-    exp.child = expense.user.children.sample
+
+    exp.child = expense.user.children[i]
     exp.save
   end
 end
@@ -139,26 +246,20 @@ puts 'Expenses created'
 payments = []
 puts 'Creating payments'
 
-30.times do
+10.times do
   payments << {
     amount: rand(10..50),
     payment_method: rand(0..3)
-
   }
 end
 # TRAP , WITH USER.SAMPLE PAYER AND PAYEE CAN BE THE SAME
 payments.each do |payment|
   pay = Payment.new(payment)
-  family = Family.all.sample
+  family = Family.first
   pay.family = family
   pay.payer = family.coparent
   pay.payee = family.parent
   pay.save
 end
-
-
-puts "TRAP ---> WITH USER.SAMPLE PAYER AND PAYEE CAN BE THE SAME"
-
-
 
 children_pics = %w[https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/r0slGlPLiq71cgwa/little-cute-kid-boy-face-portrait-closeup-grimace-smile-on-camera_sjaki1coe_thumbnail-full01.png https://www.safekids.org/sites/default/files/Safe_Kids_Day/marketing_materials/boy_smiling.jpg http://kids.wazobiamax.ng/wp-content/uploads/2017/12/Slider-boy2.png]
