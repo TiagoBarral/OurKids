@@ -1,1 +1,5 @@
-meta.yml
+# config/meta.yml
+
+meta_product_name: "OurKids"
+meta_description: "OurKids is a webapp to help divorced (or not) parents in their day-to-day lives. Built by Vasco, Tiago, Mathilde and João - LeWagon Batch 205."
+meta_image: "cover.png" # should exist in `app/assets/images/`

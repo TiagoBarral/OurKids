@@ -1,3 +1,5 @@
+<% content_for :title, "OurKids - Received Payment" %>
+
 <div class="container form-pay" style="">
   <%= simple_form_for [@family, @payment] do |f| %>
     <%= f.input :amount, required: true %>
