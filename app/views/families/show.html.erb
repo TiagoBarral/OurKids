@@ -42,7 +42,7 @@
 <% @family.children.each do |child|  %>
 <% childs = []  %>
 <% childs << child.first_name %>
-<% childs << child.total.fractional / 100 %>
+<% childs << (child.total > 0 ? (child.total.fractional / 100) : 0) %>
 <% children << childs  %>
 <% end  %>
 <%= pie_chart children %>

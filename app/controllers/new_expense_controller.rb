@@ -29,9 +29,9 @@ class NewExpenseController < ApplicationController
       end
       return redirect_to families_path
     when :pick_date
-      @expense = Expense.new(expense_params)
+      @expense = Expense.new(expense_date_params)
       @expense.user = current_user
-      @category = Category.find(params[:expense][:category])  unless params[:expense][:category].empty?
+      @category = Category.find(params[:expense][:category]) unless params[:expense][:category].empty?
       @expense.category = @category
     else
       @expense = Expense.last
@@ -44,5 +44,9 @@ class NewExpenseController < ApplicationController
 
   def expense_params
     params.require(:expense).permit(:title, :description, :date, :percentage, :receipt, :amount)
+  end
+
+  def expense_date_params
+    params.require(:expense).permit(:date)
   end
 end
