@@ -33,6 +33,7 @@
   text-decoration: none;
   color:#75b9be;
 }
+
 #index-btn-special {
   min-width: 100%;
 }
@@ -331,6 +332,23 @@ a:hover {
  cursor:pointer;
  opacity: 0.5;
 }
+
+.close-btn{
+  display: inline-block;
+  padding-bottom:5px;
+  padding-top:5px;
+  padding-left: 20%;
+  padding-right: 20%;
+  margin-right: 22%;
+  color: #75b9be;
+  border: 1px solid #75b9be;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  color:#75b9be;
+  background-color: white;
+}
+
 
  /* Dropdown Button */
 .dropbtn {
