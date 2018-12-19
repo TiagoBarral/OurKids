@@ -32,6 +32,10 @@
   }
 }
 
+.card-latest:nth-child(odd){
+    background:rgba(117,185,190,0.3);
+}
+
 .small-text-card {
   margin-left:30px;
   margin-top:5px;
