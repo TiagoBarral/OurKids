@@ -1,37 +1,38 @@
 <div class="expenses-show">
-  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, root_path, class: 'back-btn' %>
+  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, families_path, class: 'back-btn' %>
   <div class="receipt" id="myReceipt" id="myModal" class="modal"  >
     <%= cl_image_tag @expense.receipt%>
   </div>
   <div class="expense-btn">
     <%= link_to edit_family_expense_path(@family, @expense) do %>
-    <i class="far fa-edit" style="font-size: 25px;"></i>
+      <i class="far fa-edit" style="font-size: 25px;"></i>
     <% end %>
   </div>
   <div class="expenses-infos">
-
-    <h2><%= @expense.title.capitalize %></h2> <!-- expenses.title -->
-    <h4><%= @expense.user.first_name.upcase %></h4>
-    <p><%= @expense.date.strftime("%d/%m/%Y") %></p>
-  <div class="thin-div-expenses">
-  </div>
-
+    <h2><%= @expense.title.capitalize %></h2>
+     <!-- expenses.title -->
+    <h4>Paid by: <%= @expense.user.first_name.upcase %></h4>
+    <p>On: <%= @expense.date.strftime("%d/%m/%Y") %></p>
+    <div class="thin-div-expenses">
+    </div>
     <h4>CATEGORY</h4>
     <p><%= @expense.category.name.capitalize %></p>
-  <div class="thin-div-expenses">
-  </div>
-
+    <div class="thin-div-expenses">
+    </div>
     <h4>DESCRIPTION</h4>
     <p><%= @expense.description.capitalize %></p>
-  <div class="thin-div-expenses">
-  </div>
-
+    <div class="thin-div-expenses">
+    </div>
+    <h4>Price</h4>
+    <p>Total: <%= humanized_money_with_symbol(@expense.amount) %></p>
+    <div class="thin-div-expenses">
+    </div>
     <h4>KIDS</h4>
     <% @expense.children.each do |child| %>
-        <%= cl_image_tag child.photo, class: "avatar-medium"%>
-      <% end %>
-    </div>
+      <%= cl_image_tag child.photo, class: "avatar-medium"%>
+    <% end %>
   </div>
-  <div class="receipt-preview hidden">
-    <%= cl_image_tag @expense.receipt%>
-  </div>
+</div>
+<div class="receipt-preview hidden">
+  <%= cl_image_tag @expense.receipt%>
+</div>

@@ -1,7 +1,7 @@
 .card-latest1{
   display: flex;
   background-color: white;
-  width: 355px;
+  width: 85%;
   height: 70px;
   margin-left:30px;
   margin-top:10px;
@@ -17,7 +17,7 @@
 
 .expenses-container {
   overflow-y: auto;
-  height: 75vh;
+  height: 66vh;
 }
 
 // .card-wrapper1 {
@@ -70,6 +70,9 @@
   align-content: center;
   align-items:center;
   margin-top: 21px;
+  p {
+    // margin-bottom: 0;
+  }
 }
 .item{
   flex: 1 1 auto;
@@ -96,3 +99,6 @@ p.item2 {
 }
 
 
+.hide-expenses {
+  display: none;
+}

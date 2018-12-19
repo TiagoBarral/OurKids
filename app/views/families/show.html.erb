@@ -1,5 +1,7 @@
 <div class="kids">
-  <h2 class="text-align-left" style="margin-left:7%;">The Kids</h2>
+  <div style="display: flex; align-items: center;">
+    <h2 class="text-align-left" style="margin-left:7%;">The Kids</h2>
+  </div>
   <div class="thin-div">
     <div class="large-div">
     </div>
@@ -8,28 +10,46 @@
 <div class= "family-dashboard">
   <div class="families">
     <% @family.children.each do |child| %>
-      <%= link_to family_child_expenses_path(@family, child) do %>
-        <div style="position: relative;">
-          <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
-          <div class="total-child">
-            <%= money_without_cents_and_with_symbol(child.total) %>
-          </div>
-        </div>
-      <% end %>
+    <%= link_to family_child_expenses_path(@family, child) do %>
+    <div style="position: relative;">
+      <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
+      <!-- <div class="total-child">
+        <%= money_without_cents_and_with_symbol(child.total) %>
+      </div> -->
+    </div>
+    <% end %>
     <% end %>
     <%= link_to new_family_child_path(@family) do %>
-      <div class="round-btn-kid"><span>+</span></div>
+    <div class="round-btn-kid"><span>+</span></div>
     <% end %>
   </div>
 </div>
 <div class="latest">
   <h2 class="text-align-left"></i>Latest</h2>
-<div class="thin-div">
-  <div class="large-div">
+  <div class="thin-div">
+    <div class="large-div">
+    </div>
   </div>
+  <%= render @family.expenses.order(updated_at: :desc).distinct.limit(4) %>
 </div>
-<%= render @family.expenses.order(updated_at: :desc).distinct.limit(4) %>
+<div style="margin: 10px; margin-left: 30px; width: 85%;">
+  <%= link_to "Check payment history", family_payments_path(@family), class: "ghost-button-green", id: "index-btn-special"  %>
 </div>
-<div style="margin: 10px; margin-left: 30px; width: 355px;">
-  <%= link_to "Check paymets history", family_payments_path(@family), class: "ghost-button-green", id: "index-btn-special"  %>
+<% children = []  %>
+<% @family.children.each do |child|  %>
+<% childs = []  %>
+<% childs << child.first_name %>
+<% childs << (child.total > 0 ? (child.total.fractional / 100) : 0) %>
+<% children << childs  %>
+<% end  %>
+
+<div class="latest">
+  <h2 class="text-align-left"></i>Stats</h2>
+  <div class="thin-div">
+    <div class="large-div">
+    </div>
+  </div>
+  <div style="margin-left: 30px; margin-top: 10px; width: 85%">
+    <%= pie_chart children %>
+  </div>
 </div>

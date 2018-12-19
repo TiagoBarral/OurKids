@@ -1,6 +1,11 @@
-<div class="container">
-  <h3 style="margin: 0;">New expense</h3>
-  <div class= "family-dashboard">
+  <div class="kids">
+  <h2 class="text-align-left" style="margin-left:7%;font-weight: 600;">New expense</h2>
+  <div class="thin-div">
+    <div class="large-div1">
+    </div>
+  </div>
+
+  <div class= "family-dashboard1 form1">
     <%= form_for @expense, url: wizard_path, method: :put do |f| %>
     <h5>Description & Title</h5>
     <div class="thin-div-expense">
@@ -13,9 +18,11 @@
       <p>Description:</p>
       <%= f.text_field :description%>
     </div>
-    <%= f.submit "Next", class: "ghost-button-btn-newfamily" %>
+<%= link_to 'Skip', next_wizard_path, class: "ghost-button-btn-newfamily1skip" %>
+    <%= f.submit "Next", class: "ghost-button-btn-newfamily1" %>
   </div>
   <% end %>
 
-<%= link_to 'skip', next_wizard_path %>
 </div>
+
+
