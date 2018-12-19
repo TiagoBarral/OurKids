@@ -4,8 +4,8 @@
     <%= cl_image_tag @expense.receipt%>
   </div>
   <div class="expense-btn">
-    <%= link_to edit_family_expense_path(@family, @expense) do %>
-      <i class="far fa-edit" style="font-size: 25px;"></i>
+    <%= link_to edit_family_expense_path(@family, @expense), style: 'margin-top:-30%;' do %>
+      <i class="far fa-edit"></i>
     <% end %>
   </div>
   <div class="expenses-infos">
