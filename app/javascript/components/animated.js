@@ -5,7 +5,7 @@ function loadDynamicBannerText() {
 
   if (target) {
     new Typed(target, {
-      strings: ["For easier co-parenting,", "after divorce."],
+      strings: ["For easier and smoother,", "co-parenting."],
       typeSpeed: 50,
       loop: true
     });
