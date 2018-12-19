@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :find_family, only: [:index, :show, :edit]
+  before_action :find_family, only: [:index, :show, :edit, :update]
   layout 'devise', only: [:show]
 
   def index
@@ -20,7 +20,7 @@ class ExpensesController < ApplicationController
     @category = Category.find(params[:expense][:category]) unless params[:expense][:category].empty?
     @expense.category = @category unless @category.nil?
     if @expense.update(expense_params)
-      redirect_to families_path
+      redirect_to expense_family_path(@family, @expense)
     else
       render :edit
     end

@@ -1,6 +1,6 @@
 class Child < ApplicationRecord
   mount_uploader :photo, PhotoUploader
-  after_create :check_avatar
+  # after_create :check_avatar
 
   enum gender: [:Male, :Female, :Other]
 

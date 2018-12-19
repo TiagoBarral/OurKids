@@ -22,8 +22,10 @@ gem 'carrierwave', '~> 1.2'
 gem 'stripe'
 gem 'wicked'
 gem 'chartkick'
-gem 'faker'
 gem 'record_tag_helper', '~> 1.0'
+gem 'postmark-rails'
+
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
