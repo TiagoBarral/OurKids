@@ -309,8 +309,10 @@
   align-items: end;
   padding-left: 13px;
   i {
-    margin-top: -3px;
     padding: 0;
+    a{
+      padding-top:-30%;
+    }
   }
 }
 
@@ -319,7 +321,9 @@ a {
   text-decoration: none;
 }
 
-
+.fa-edit{
+  font-size: 25px;
+}
 
 a:hover {
  color: inherit;
