@@ -1,5 +1,11 @@
 <!-- FORM -->
-<h1>Make a stripe payment below:</h1>
+  <div class="kids">
+  <h2 class="text-align-left" style="margin-left:7%;font-weight: 600;">Make a stripe </h2><h2 style="margin-left:27px;">payment below:</h2>
+  <div class="thin-div">
+    <div class="large-div">
+    </div>
+  </div>
+  <div class= "family-dashboard1 form1">
 <%=simple_form_for :payment, url: family_payments_pay_path do |f| %>
   <% balance = params[:balance][:balance].to_i.abs*100 %>
   <%= f.hidden_field :balance, value: balance%>
@@ -14,3 +20,4 @@
     data-amount="<%= balance %>"
     ></script>
 <% end %>
+</div>
