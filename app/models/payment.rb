@@ -1,5 +1,5 @@
 class Payment < ApplicationRecord
-  after_create :update_balance
+  after_save :update_balance
 
   belongs_to :payer, class_name: :User
   belongs_to :payee, class_name: :User
