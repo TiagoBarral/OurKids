@@ -37,6 +37,7 @@
   margin-top:10px;
   margin-left: -10px;
   margin-bottom: 12px;
+  font-weight: 500;
   // display: absolute !important;
   // right: 100px;
 }
@@ -44,6 +45,15 @@
 .card-title1{
   display: inline;
   margin-top:10px;
+  width: 105px;
+  h4{
+    font-weight: 500;
+    font-size:18px;
+  }
+  p{
+    font-weight: 300;
+    margin-bottom: 20%;
+  }
   // margin-left:15px;
 }
 
@@ -69,8 +79,10 @@
   justify-content: center;
   align-content: center;
   align-items:center;
-  margin-top: 21px;
+  margin-top: 10px;
+  margin-bottom: -3%;
   p {
+    font-weight:300;
     // margin-bottom: 0;
   }
 }

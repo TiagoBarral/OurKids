@@ -34,7 +34,9 @@
 <li><a href="/dashboard"><img src="https://img.icons8.com/ios/45/000000/user.png"></img></a></li>
 </ul>
 </footer>
-<!-- Modal -->
+
+
+<!-- Modal BALANCE -->
 <div class="modal fade" id="newTag" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -63,7 +65,7 @@
               <% end %>
             <% elsif fam.coparent == current_user %>
               <% balance = fam.outstanding_coparent_balance %>
-              <h5><%= fam.parent.first_name.capitalize %>: <%= balance %> €</h5>
+              <h5><%= fam.parent.first_name.capitalize %> <%= balance %> €</h5>
               <% if balance > 0 %>
                 <%= simple_form_for :balance, url: family_payments_pay_path(fam), method: :get do |f| %>
                   <%= f.hidden_field :balance, value: balance %>
@@ -83,10 +85,6 @@
             </h4>
           <% end %>
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>
