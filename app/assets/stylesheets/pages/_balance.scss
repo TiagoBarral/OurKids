@@ -1,6 +1,6 @@
 .modal-content{
-  margin-top:40%;
-  border-radius:3%;
+  margin-top:50%;
+  border-radius:2%;
 
   h3{
     margin-bottom: -10%;
@@ -11,4 +11,11 @@
 .name-balance{
   font-weight: 300;
   font-size: 16px;
+}
+
+.modal-body{
+  h5{
+    font-weight: 400;
+    font-size: 18px;
+  }
 }
