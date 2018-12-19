@@ -6,6 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# config.action_mailer.delivery_method = :postmark
+# config.action_mailer.postmark_settings = { :api_token => "c8755e83-4502-44d1-af76-a292b211450e" }
+
 module OurKids
   class Application < Rails::Application
     config.generators do |generate|
