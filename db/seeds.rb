@@ -252,13 +252,19 @@ puts 'Creating payments'
     payment_method: rand(0..3)
   }
 end
+
 # TRAP , WITH USER.SAMPLE PAYER AND PAYEE CAN BE THE SAME
 payments.each do |payment|
   pay = Payment.new(payment)
   family = Family.first
+  parents = [family.parent, family.coparent]
   pay.family = family
-  pay.payer = family.coparent
-  pay.payee = family.parent
+  pay.payer = parents[rand(0..1)]
+  if pay.payer == family.parent
+    pay.payee = family.coparent
+  else
+    pay.payee = family.parent
+  end
   pay.save
 end
 
