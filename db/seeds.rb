@@ -204,21 +204,22 @@ i=0
 expenses.each do |expense|
 
   i += 1
-
+  family = Family.first
+  parents = [family.parent, family.coparent]
   if i < 4
     exp = Expense.new(expense)
-    exp.user = User.first
+    exp.user = parents[rand(0..1)]
     exp.category = Category.find_by(name: 'Food')
     exp.save
 
   elsif i < 6
     exp = Expense.new(expense)
-    exp.user = User.first
+    exp.user = parents[rand(0..1)]
     exp.category = Category.find_by(name: 'Fun')
     exp.save
   else
     exp = Expense.new(expense)
-    exp.user = User.first
+    exp.user = parents[rand(0..1)]
     exp.category = Category.find_by(name: 'Health')
     exp.save
   end
