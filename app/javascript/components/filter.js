@@ -10,8 +10,13 @@ const initFilter = function() {
       expenses.forEach((div) => {
         div.classList.add('hide-expenses');
       });
-      categories.forEach((category) => {
-        if (event.target.value === category) {
+      if (event.target.value === '') {
+          expenses.forEach((div) => {
+            div.classList.remove('hide-expenses');
+          });
+        };
+        categories.forEach((category) => {
+          if (event.target.value === category) {
           // console.log(document.getElementsByClassName(category));
           const cat = document.getElementsByClassName(category);
           Array.prototype.forEach.call(cat, (el) => {
@@ -20,7 +25,7 @@ const initFilter = function() {
         };
 
       });
-    });
+      });
   }
 };
 

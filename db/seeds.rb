@@ -38,7 +38,7 @@ users << {
 
 users << {
   first_name: 'Maria',
-  last_name: 'do mal',
+  last_name: 'duMal',
   email: 'maria@gmail.com',
   password: 'ourkids'
 }
@@ -55,13 +55,26 @@ puts 'Users created..'
 puts 'Creating children'
 children = []
 
-3.times do
-  children << {
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    gender: rand(0..1)
-  }
-end
+
+children << {
+  first_name: 'Boris',
+  last_name: Faker::Name.last_name,
+  gender: 0
+}
+
+children << {
+  first_name: 'Jack',
+  last_name: Faker::Name.last_name,
+  gender: 0
+}
+
+children << {
+  first_name: 'Tisha',
+  last_name: Faker::Name.last_name,
+  gender: 1
+}
+
+
 
 children.each do |child|
   Child.create(child)
@@ -90,7 +103,7 @@ fam.parent = User.first
 fam.coparent = User.last
 fam.save
 
-puts 'families created'
+puts 'Families created'
 
 parent_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544111156/rf61zuqqbpmfe6xh8ti1.jpg'
 mother_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544188763/abtabr4rjfvouddfxvme.jpg'
@@ -150,8 +163,8 @@ puts 'Creating expenses'
 
 
 expenses << {
-  title: 'MacDonalds',
-  description:'Happy meanl madness',
+  title: 'McDonalds',
+  description:'Happy meal madness',
   date: Faker::Date.backward(27),
   amount: 15,
   percentage: 50
@@ -169,7 +182,7 @@ expenses << {
 
 expenses << {
   title: 'Pizzahut',
-  description:'No time to cook, just order some pizza',
+  description:'No time to cook, just ordered some pizza',
   date: Faker::Date.backward(31),
   amount: 36,
   percentage: 50
@@ -185,7 +198,7 @@ expenses << {
 
 expenses << {
   title: 'Karts',
-  description:'Awsome day driving karts',
+  description:'Awesome day driving karts',
   date: Faker::Date.backward(33),
   amount: 50,
   percentage: 50
@@ -193,9 +206,83 @@ expenses << {
 
 expenses << {
   title: 'Dentist',
-  description:'trip to the dentist',
+  description:'Trip to the dentist',
   date: Faker::Date.backward(23),
   amount: 50,
+  percentage: 50
+}
+
+
+expenses << {
+  title: 'Bills',
+  description:'Kid\'s school bills',
+  date: Faker::Date.backward(2),
+  amount: 800,
+  percentage: 50
+}
+
+expenses << {
+  title: 'Supplies',
+  description:'Books, notebooks, pencils, etc',
+  date: Faker::Date.backward(8),
+  amount: 130,
+  percentage: 50
+}
+
+expenses << {
+  title: 'Doctor',
+  description:'Hospital visit, appendix removals',
+  date: Faker::Date.backward(50),
+  amount: 148,
+  percentage: 50
+}
+
+expenses << {
+  title: 'Disneyland',
+  description:'Trip to Disneyland with everyone!',
+  date: Faker::Date.backward(100),
+  amount: 1534,
+  percentage: 20
+}
+
+expenses << {
+  title: 'Dubai',
+  description:'Winter holiday in Dubai',
+  date: Faker::Date.backward(300),
+  amount: 3400,
+  percentage: 20
+}
+##############################################
+
+expenses << {
+  title: 'Basketball',
+  description:'Monthly bill for basketball training',
+  date: Faker::Date.backward(60),
+  amount: 27,
+  percentage: 50
+}
+
+expenses << {
+  title: 'Hockey',
+  description:'Went to watch the hockey finals',
+  date: Faker::Date.backward(60),
+  amount: 79,
+  percentage: 50
+}
+
+expenses << {
+  title: 'Sweaters',
+  description:'Bought Christmas sweaters for the kids',
+  date: Faker::Date.backward(60),
+  amount: 100,
+  percentage: 50
+}
+
+expenses << {
+  title: 'College',
+  description:'Payment #3',
+  date: Faker::Date.backward(60),
+  amount: 3499,
   percentage: 50
 }
 
@@ -204,22 +291,48 @@ i=0
 expenses.each do |expense|
 
   i += 1
-
+  family = Family.first
+  parents = [family.parent, family.coparent]
   if i < 4
     exp = Expense.new(expense)
-    exp.user = User.first
+    exp.user = parents[rand(0..1)]
     exp.category = Category.find_by(name: 'Food')
     exp.save
 
   elsif i < 6
     exp = Expense.new(expense)
-    exp.user = User.first
+    exp.user = parents[rand(0..1)]
     exp.category = Category.find_by(name: 'Fun')
+    exp.save
+  elsif i == 6 || i == 9
+    exp = Expense.new(expense)
+    exp.user = parents[rand(0..1)]
+    exp.category = Category.find_by(name: 'Health')
+    exp.save
+  elsif i < 9
+    exp = Expense.new(expense)
+    exp.user = parents[rand(0..1)]
+    exp.category = Category.find_by(name: 'Education')
+    exp.save
+  elsif i < 12
+    exp = Expense.new(expense)
+    exp.user = parents[1]
+    exp.category = Category.find_by(name: 'Vacation')
+    exp.save
+  elsif i < 14
+    exp = Expense.new(expense)
+    exp.user = parents[rand(0..1)]
+    exp.category = Category.find_by(name: 'Sport')
+    exp.save
+  elsif i == 14
+    exp = Expense.new(expense)
+    exp.user = parents[rand(0..1)]
+    exp.category = Category.find_by(name: 'Clothes')
     exp.save
   else
     exp = Expense.new(expense)
-    exp.user = User.first
-    exp.category = Category.find_by(name: 'Health')
+    exp.user = parents[0]
+    exp.category = Category.find_by(name: 'Others')
     exp.save
   end
 end
@@ -252,13 +365,19 @@ puts 'Creating payments'
     payment_method: rand(0..3)
   }
 end
+
 # TRAP , WITH USER.SAMPLE PAYER AND PAYEE CAN BE THE SAME
 payments.each do |payment|
   pay = Payment.new(payment)
   family = Family.first
+  parents = [family.parent, family.coparent]
   pay.family = family
-  pay.payer = family.coparent
-  pay.payee = family.parent
+  pay.payer = parents[rand(0..1)]
+  if pay.payer == family.parent
+    pay.payee = family.coparent
+  else
+    pay.payee = family.parent
+  end
   pay.save
 end
 

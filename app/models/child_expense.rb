@@ -14,8 +14,8 @@ class ChildExpense < ApplicationRecord
 
         child.families.first.update(outstanding_coparent_balance: coparent_amount, outstanding_parent_balance: parent_amount)
       elsif expense.user == child.families.first.coparent
-        coparent_amount = child.families.first.outstanding_parent_balance. - other_amount.to_i
-        parent_amount = child.families.first.outstanding_coparent_balance. + other_amount.to_i
+        coparent_amount = child.families.first.outstanding_coparent_balance. - other_amount.to_i
+        parent_amount = child.families.first.outstanding_parent_balance. + other_amount.to_i
 
         child.families.first.update(outstanding_coparent_balance: coparent_amount, outstanding_parent_balance: parent_amount)
       end

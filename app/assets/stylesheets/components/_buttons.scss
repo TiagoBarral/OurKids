@@ -409,3 +409,9 @@ a:hover {
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+.exit-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+}
