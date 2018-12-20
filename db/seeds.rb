@@ -242,7 +242,7 @@ expenses << {
   description:'Trip to Disneyland with everyone!',
   date: Faker::Date.backward(100),
   amount: 1534,
-  percentage: 80
+  percentage: 20
 }
 
 expenses << {
@@ -250,7 +250,7 @@ expenses << {
   description:'Winter holiday in Dubai',
   date: Faker::Date.backward(300),
   amount: 3400,
-  percentage: 70
+  percentage: 20
 }
 ##############################################
 
@@ -316,7 +316,7 @@ expenses.each do |expense|
     exp.save
   elsif i < 12
     exp = Expense.new(expense)
-    exp.user = parents[rand(0..1)]
+    exp.user = parents[1]
     exp.category = Category.find_by(name: 'Vacation')
     exp.save
   elsif i < 14
@@ -331,7 +331,7 @@ expenses.each do |expense|
     exp.save
   else
     exp = Expense.new(expense)
-    exp.user = parents[rand(0..1)]
+    exp.user = parents[0]
     exp.category = Category.find_by(name: 'Others')
     exp.save
   end

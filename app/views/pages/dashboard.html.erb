@@ -30,11 +30,11 @@
       </div>
     <% end %>
   </div>
-  <div class= "profile-dashboard" style="display: flex; justify-content: space-around;">
+  <div class= "profile-dashboard" style="display: flex;">
     <div>
       <h4>Profile</h4>
       <%= cl_image_tag current_user.photo, class: "avatar-medium" %>
-      <%= link_to '<img src="https://img.icons8.com/ios/20/000000/edit.png"> Edit'.html_safe, edit_user_registration_path %>
+      <%= link_to 'edit <img src="https://img.icons8.com/ios/25/000000/edit.png">'.html_safe, edit_user_registration_path, style: 'font-size: 1.3em;' %>
     </div>
   </div>
 </div>
