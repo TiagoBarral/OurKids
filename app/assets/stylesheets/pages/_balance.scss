@@ -19,3 +19,24 @@
     font-size: 18px;
   }
 }
+
+.modal-header{
+  border-bottom: white;
+}
+
+.balance-card{
+  padding-bottom: 3%;
+  padding-top:3%;
+  color:black;
+  background-color: #efefef;
+  h5{
+    margin-top:1%;
+    margin-bottom:2%;
+    z-index: 10;
+    position:relative;
+  }
+}
+
+.nothing{
+  margin-top:3%;
+}

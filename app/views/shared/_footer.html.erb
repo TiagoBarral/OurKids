@@ -46,7 +46,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <div class="thin-div">
+          <div class="large-div">
+          </div>
+        </div>
       <div class="modal-body" style="margin: 30px;">
+        <div class="balance-card">
         <% if user_signed_in? %>
           <% current_user.families.each do |fam| %>
             <% if fam.parent == current_user %>
@@ -62,7 +67,11 @@
                     <%= f.submit :Pay, class: "ghost-button-btn-balance" %>
                   <% end %>
                 </div>
+        </div>
+        <div class="nothing">
+        </div>
               <% end %>
+              <div class="balance-card">
             <% elsif fam.coparent == current_user %>
               <% balance = fam.outstanding_coparent_balance %>
               <h5><%= fam.parent.first_name.capitalize %> <%= balance %> €</h5>
@@ -75,8 +84,9 @@
               <% end %>
             <% end %>
           <% end %>
+        </div>
           <% if current_user.balance >= 0 %>
-            <h4 class="text-right" style="color: red; margin-top: 25px;">
+            <h4 class="text-center" style="color: red; margin-top: 25px;">
               You owe <%= current_user.balance.abs %> €
             </h4>
           <% else %>
