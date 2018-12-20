@@ -2,6 +2,7 @@
 
 <div class="expenses-show">
   <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, :back, class: 'back-btn' %>
+  <%= link_to '<i class="fas fa-times"></i>'.html_safe, families_path, class: 'exit-btn', style: 'z-index: 150;' %>
   <div class="receipt" id="myReceipt" id="myModal" class="modal"  >
     <%= cl_image_tag @expense.receipt%>
   </div>
