@@ -13,12 +13,10 @@
   <div class="families">
     <% @family.children.each do |child| %>
     <%= link_to family_child_expenses_path(@family, child) do %>
-    <div style="position: relative;">
       <%= cl_image_tag child.photo, class: "avatar-Xlarge"%>
       <!-- <div class="total-child">
         <%= money_without_cents_and_with_symbol(child.total) %>
       </div> -->
-    </div>
     <% end %>
     <% end %>
     <%= link_to new_family_child_path(@family) do %>
