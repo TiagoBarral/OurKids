@@ -211,6 +211,8 @@
 }
 
 .ghost-button-btn-balance{
+  position:fixed;
+    z-index:99 ;
     display: inline-block;
     width: 50px;
     margin-top: 4px;
@@ -218,7 +220,7 @@
     padding-right: 60px;
     /* border: 1px; */
     color: #ff5a5f;
-    background-color: #ffffff;
+    background-color: #efefef;
     border: 1px solid #ff5a5f;
     text-align: center;
     outline: none;
