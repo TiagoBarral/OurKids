@@ -46,7 +46,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body" style="margin: 15px;">
+      <div class="modal-body" style="margin: 30px;">
         <% if user_signed_in? %>
           <% current_user.families.each do |fam| %>
             <% if fam.parent == current_user %>
@@ -76,11 +76,11 @@
             <% end %>
           <% end %>
           <% if current_user.balance >= 0 %>
-            <h4 class="text-right" style="color: red;">
+            <h4 class="text-right" style="color: red; margin-top: 25px;">
               You owe <%= current_user.balance.abs %> €
             </h4>
           <% else %>
-            <h4 class="text-right" style="color: green;">
+            <h4 class="text-right" style="color: green; margin-top: 25px;">
               You are owed <%= current_user.balance.abs %> €
             </h4>
           <% end %>
