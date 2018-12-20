@@ -1,6 +1,7 @@
 <% content_for :title, "New Expense - Pick Amount" %>
 
   <div class="kids">
+    <%= link_to '<i class="fas fa-times"></i>'.html_safe, families_path, class: 'exit-btn', data: { confirm: 'Are you sure you want to discard the expense?' } %>
   <h2 class="text-align-left" style="margin-left:7%;font-weight: 600;">New expense</h2>
   <div class="thin-div">
     <div class="large-div2">
@@ -15,9 +16,9 @@
     </div>
     <div class="content-expenses">
       <p>Amount paid</p>
-      <%= f.number_field :amount%>
+      <%= f.number_field :amount, value: ''%>
       <p>Your percentage</p>
-      <%= f.number_field :percentage %>
+      <%= f.number_field :percentage, value: 50 %>
     </div>
     <%= link_to 'Skip', next_wizard_path, class: "ghost-button-btn-newfamily1skip" %>
     <%= f.submit "Next", class: "ghost-button-btn-newfamily1" %>

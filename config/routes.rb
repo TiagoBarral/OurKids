@@ -12,6 +12,6 @@ Rails.application.routes.draw do
     get '/payments/pay', to: 'payments#pay'
     post '/payments/pay', to: 'payments#stripe'
   end
-  resources :expenses, only: [:index, :new, :create]
+  # resources :expenses, only: [:index, :new, :create]
   resources :new_expense, as: 'form'
 end
