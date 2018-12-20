@@ -109,8 +109,8 @@ parent_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544111156/rf
 mother_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544188763/abtabr4rjfvouddfxvme.jpg'
 mother2_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544112584/dnpogzmvpalzivu9ewil.jpg'
 kid1_photo = 'https://www.connectonenow.org/wp-content/uploads/2016/08/jershiaa.jpg'
-kid2_photo = 'https://www.theoldglobe.org/globalassets/images/2017-2018/grinch-2017/headshot/hayden-hartpence.jpg?id=27794'
-kid3_photo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtoSYHsKDWh01WEV2AeVDlZ6--jAg4Bhz9ubN-Z_AK5nNMntblBQ'
+kid2_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1545309648/337405_4738586594183_890842433_o-Square.jpg'
+kid3_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1545309887/ethcxacbrtcwzqr6fgbl-Square.jpg'
 receipt1_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544195045/42552935.jpg'
 receipt2_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544195045/36212418.jpg'
 
@@ -139,8 +139,8 @@ fam.family = Family.first
 fam.save
 
 
-
-# par.remote_photo_url = parent_photo
+par = User.first
+par.update(remote_photo_url: parent_photo)
 # mot1.remote_photo_url = mother_photo
 # mot2.remote_photo_url = mother2_photo
 # rec1.remote_photo_url = receipt1_photo
