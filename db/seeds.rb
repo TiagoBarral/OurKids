@@ -108,11 +108,11 @@ puts 'Families created'
 parent_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544111156/rf61zuqqbpmfe6xh8ti1.jpg'
 mother_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544188763/abtabr4rjfvouddfxvme.jpg'
 mother2_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544112584/dnpogzmvpalzivu9ewil.jpg'
-kid1_photo = 'https://www.connectonenow.org/wp-content/uploads/2016/08/jershiaa.jpg'
+kid1_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1545311053/vcdf9mxkz2cp58gzf5rn-Square.jpg'
 kid2_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1545309648/337405_4738586594183_890842433_o-Square.jpg'
 kid3_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1545309887/ethcxacbrtcwzqr6fgbl-Square.jpg'
-receipt1_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544195045/42552935.jpg'
-receipt2_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1544195045/36212418.jpg'
+receipt1_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1545311001/dentist.jpg'
+receipt2_photo = 'https://res.cloudinary.com/drpwozhzg/image/upload/v1545310999/cinema.png'
 
 #FAMILYCHILDREN
 
@@ -143,8 +143,6 @@ par = User.first
 par.update(remote_photo_url: parent_photo)
 # mot1.remote_photo_url = mother_photo
 # mot2.remote_photo_url = mother2_photo
-# rec1.remote_photo_url = receipt1_photo
-# rec2.remote_photo_url = receipt2_photo
 
 # par.save
 # mot1.save
@@ -337,6 +335,10 @@ expenses.each do |expense|
   end
 end
 
+rec1 = Expense.find_by(title: 'Dentist')
+rec2 = Expense.find_by(title: 'Cinema')
+rec1.update(remote_receipt_url: receipt1_photo)
+rec2.update(remote_receipt_url: receipt2_photo)
 
 i = -1
 Expense.all.each do |expense|
